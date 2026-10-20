@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PVASMMITZone — Products Section</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<style>
+/* =========================================================
+   GLOBAL & VARIABLES
+========================================================= */
+.products-section,
+.products-section *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.products-section{
+    font-family: "Plus Jakarta Sans", sans-serif;
+    color: #f7f8ff;
+    background: transparent;
+    --border: rgba(255,255,255,.08);
+}
+
+/* =========================================================
+   PRODUCTS
+========================================================= */
+.products-section {
+    margin: 0;
+    padding: 0;
+}
+
+.products-section .product-category{
+    margin-bottom: 0;
+}
+
+.products-section .category-head{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.products-section .category-head-icon{
+    width: 37px;
+    height: 37px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 11px;
+    color: #c4b5fd;
+    background: rgba(139,92,246,.09);
+    border: 1px solid rgba(139,92,246,.18);
+}
+
+.products-section .category-head h3{
+    font-size: 18px;
+    font-weight: 800;
+}
+
+.products-section .category-head span{
+    color: #778092;
+    font-size: 11px;
+}
+
+/* =========================================================
+   PRODUCT CAROUSEL
+========================================================= */
+.products-section .product-slider{
+    position: relative;
+}
+
+.products-section .product-viewport{
+    overflow: hidden;
+    padding: 4px 2px;
+    width: 100%;
+}
+
+.products-section .product-track{
+    display: flex;
+    gap: 20px;
+    transition: transform .5s cubic-bezier(.22,.61,.36,1);
+    will-change: transform;
+}
+
+.products-section .product-card{
+    flex: 0 0 calc((100% - 60px) / 4);
+    min-width: 0;
+    margin-bottom: 0;
+    padding: 14px;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    background: none;
+    box-shadow: 0 10px 26px rgba(0,0,0,.16);
+    transition: .3s ease;
+}
+
+.products-section .product-image{
+    display: block;
+    width: 210px;
+    height: 210px;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    object-fit: cover;
+    border-radius: 11px;
+    background: #111827;
+    border: 1px solid rgba(255,255,255,.08);
+}
+
+.products-section .product-card:hover{
+    transform: translateY(-4px);
+    border-color: rgba(139,92,246,.35);
+    box-shadow: 0 15px 35px rgba(139,92,246,.12);
+}
+
+.products-section .product-card h4{
+    margin-bottom: 6px;
+    font-size: 13px;
+    font-weight: 800;
+    line-height: 1.35;
+}
+
+.products-section .product-card p{
+    min-height: 44px;
+    color: #8e98aa;
+    font-size: 10px;
+    line-height: 1.55;
+}
+
+.products-section .product-bottom{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 6px;
+    margin-top: 11px;
+}
+
+.products-section .product-price{
+    color: #fff;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+/* =========================================================
+   PRODUCT RATING
+========================================================= */
+.products-section .product-rating{
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-bottom: 4px;
+    line-height: 1;
+    white-space: nowrap;
+}
+
+.products-section .product-rating-stars{
+    display: inline-flex;
+    align-items: center;
+    gap: 1px;
+}
+
+.products-section .product-rating-star{
+    position: relative;
+    display: inline-block;
+    width: 9px;
+    height: 12px;
+    line-height: 12px;
+    font-size: 10px;
+    color: transparent;
+    -webkit-text-stroke: 1px #f4a000;
+    background: linear-gradient(90deg,#f4a000 var(--star-fill,0%),transparent var(--star-fill,0%));
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+.products-section .product-rating-value{
+    color: #e5e7eb;
+    font-size: 8px;
+    font-weight: 800;
+}
+
+.products-section .product-rating-count{
+    color: #737d8e;
+    font-size: 7px;
+    font-weight: 500;
+}
+
+.products-section .product-price small{
+    color: #7c8798;
+    font-size: 8px;
+    font-weight: 500;
+}
+
+.products-section .product-btn{
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 7px 9px;
+    border-radius: 8px;
+    color: #fff;
+    background: linear-gradient(135deg,#8b5cf6,#ec4899);
+    text-decoration: none;
+    font-size: 9px;
+    font-weight: 700;
+    transition: .25s ease;
+    white-space: nowrap;
+}
+
+.products-section .product-btn:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(139,92,246,.25);
+}
+
+.products-section .carousel-controls{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.products-section .carousel-arrow{
+    width: 37px;
+    height: 37px;
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 10px;
+    color: #fff;
+    background: rgba(255,255,255,.04);
+    cursor: pointer;
+    transition: .25s ease;
+}
+
+.products-section .carousel-arrow:hover{
+    background: linear-gradient(135deg,#8b5cf6,#ec4899);
+    border-color: transparent;
+}
+
+.products-section .carousel-dots{
+    display: flex;
+    gap: 6px;
+}
+
+.products-section .carousel-dot{
+    width: 6px;
+    height: 6px;
+    border-radius: 20px;
+    background: rgba(255,255,255,.18);
+    cursor: pointer;
+    transition: .3s ease;
+}
+
+.products-section .carousel-dot.active{
+    width: 20px;
+    background: linear-gradient(90deg,#8b5cf6,#ec4899);
+}
+
+@media(max-width:1050px){
+    .products-section .product-card{
+        flex: 0 0 calc((100% - 40px) / 3);
+    }
+}
+
+@media(max-width:700px){
+    .products-section .product-card{
+        flex: 0 0 calc((100% - 20px) / 2);
+    }
+}
+</style>
+</head>
+<body>
+
+<main class="products-section">
+    <div id="productContainer"></div>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+const productImages = {
+    "Buy Yelp Reviews": "buy-yelp-reviews.jpg",
+    "Buy Google Reviews": "buy-google-reviews.jpg",
+    "Buy TrustPilot Reviews": "buy-trustpilot-reviews.jpg",
+    "Buy Facebook Reviews": "buy-facebook-reviews.jpg",
+    "Buy Tripadvisor Reviews": "buy-tripadvisor-reviews.jpg",
+    "Buy Glassdoor Reviews": "buy-glassdoor-reviews.jpg"
+};
+
+const HOMEPAGE_SUPABASE_URL = "https://xesxszewijgptialporu.supabase.co";
+const HOMEPAGE_SUPABASE_ANON_KEY = "sb_publishable_62wWEgo__Xms3meUHyAvDw_xDxMeW0B";
+
+let homepageReviewsClient = null;
+let homepageRatingCache = {};
+
+function getHomepageReviewsClient(){
+    if(homepageReviewsClient) return homepageReviewsClient;
+    if(!window.supabase || !window.supabase.createClient) return null;
+    homepageReviewsClient = window.supabase.createClient(HOMEPAGE_SUPABASE_URL, HOMEPAGE_SUPABASE_ANON_KEY);
+    return homepageReviewsClient;
+}
+
+function getHomepageProductReviewSlug(productName){
+    const aliases = {
+        "Buy Yelp Reviews": "buy-yelp-reviews",
+        "Buy Google Reviews": "buy-google-reviews",
+        "Buy TrustPilot Reviews": "buy-trustpilot-reviews",
+        "Buy Facebook Reviews": "buy-facebook-reviews",
+        "Buy Tripadvisor Reviews": "buy-tripadvisor-reviews",
+        "Buy Glassdoor Reviews": "buy-glassdoor-reviews"
+    };
+    if(aliases[productName]) return aliases[productName];
+    return String(productName || "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+}
+
+function getProductRatingHTML(productName){
+    const slug = getHomepageProductReviewSlug(productName);
+    const data = homepageRatingCache[slug] || { rating: 0, reviews: 0 };
+    const rating = Math.max(0, Math.min(5, Number(data.rating) || 0));
+    const reviewCount = Math.max(0, Number(data.reviews) || 0);
+    let starsHTML = "";
+
+    for(let i = 0; i < 5; i++){
+        const fill = Math.max(0, Math.min(100, (rating - i) * 100));
+        starsHTML += `<span class="product-rating-star" style="--star-fill:${fill}%" aria-hidden="true">★</span>`;
+    }
+
+    return `
+        <div class="product-rating" data-product-slug="${slug}">
+            <span class="product-rating-stars">${starsHTML}</span>
+            <span class="product-rating-value">${rating.toFixed(1)}</span>
+            <span class="product-rating-count">(${reviewCount})</span>
+        </div>`;
+}
+
+async function loadHomepageProductRatings(){
+    const client = getHomepageReviewsClient();
+    if(!client) return;
+
+    try{
+        const { data, error } = await client.from("reviews").select("product_slug,rating,status").in("status", ["approved", "pending"]);
+        if(error) throw error;
+
+        const totals = {};
+        (data || []).forEach(review => {
+            const slug = String(review.product_slug || "").trim();
+            const rating = Number(review.rating);
+            if(!slug || !Number.isFinite(rating) || rating < 1 || rating > 5) return;
+            if(!totals[slug]) totals[slug] = { total: 0, count: 0 };
+            totals[slug].total += rating;
+            totals[slug].count += 1;
+        });
+
+        homepageRatingCache = {};
+        Object.keys(totals).forEach(slug => {
+            homepageRatingCache[slug] = {
+                rating: totals[slug].total / totals[slug].count,
+                reviews: totals[slug].count
+            };
+        });
+
+        document.querySelectorAll(".product-rating[data-product-slug]").forEach(ratingEl => {
+            const slug = ratingEl.getAttribute("data-product-slug");
+            const data = homepageRatingCache[slug] || { rating: 0, reviews: 0 };
+            const rating = Math.max(0, Math.min(5, Number(data.rating) || 0));
+            const count = Math.max(0, Number(data.reviews) || 0);
+            const stars = ratingEl.querySelectorAll(".product-rating-star");
+            stars.forEach((star, index) => {
+                const fill = Math.max(0, Math.min(100, (rating - index) * 100));
+                star.style.setProperty("--star-fill", `${fill}%`);
+            });
+            const valueEl = ratingEl.querySelector(".product-rating-value");
+            const countEl = ratingEl.querySelector(".product-rating-count");
+            if(valueEl) valueEl.textContent = rating.toFixed(1);
+            if(countEl) countEl.textContent = `(${count})`;
+        });
+    }catch(error){
+        console.error("Error loading ratings:", error);
+    }
+}
+
+const productCategories = [
+    {
+        name: "Reviews Service",
+        products: [
+            ["Buy Yelp Reviews", "$40 – $200"],
+            ["Buy Google Reviews", "$25 – $440"],
+            ["Buy TrustPilot Reviews", "$35 – $700"],
+            ["Buy Facebook Reviews", "$25 – $440"],
+            ["Buy Tripadvisor Reviews", "$8 – $750"],
+            ["Buy Glassdoor Reviews", "$15 – $1300"]
+        ]
+    }
+];
+
+const productContainer = document.getElementById("productContainer");
+
+function renderProducts(){
+    productContainer.innerHTML = "";
+
+    productCategories.forEach(category => {
+        const section = document.createElement("div");
+        section.className = "product-category";
+
+        section.innerHTML = `
+            <div class="category-head">
+                <div class="category-head-icon"><i class="fa-solid fa-star"></i></div>
+                <div>
+                    <h3>${category.name}</h3>
+                    <span>${category.products.length} Products</span>
+                </div>
+            </div>
+            <div class="product-slider">
+                <div class="product-viewport">
+                    <div class="product-track">
+                        ${category.products.map(product => {
+                            const productSlug = product[0].toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+                            const productPage = `buy-${product[0].replace(/^Buy\s+/i, "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+\vert{}-+$/g, "")}.html`;
+                            const productImage = productImages[product[0]] || `product-images/${productSlug}.jpg`;
+
+                            return `
+                                <article class="product-card" data-name="${product[0].toLowerCase()}">
+                                    <img src="${productImage}" alt="${product[0]}" class="product-image" loading="lazy" onerror="this.onerror=null;this.src='product-images/${productSlug}.jpg';">
+                                    <h4>${product[0]}</h4>
+                                    <p>Explore product information, availability and details.</p>
+                                    <div class="product-bottom">
+                                        <div class="product-price">
+                                            ${getProductRatingHTML(product[0])} <small>Price</small>${product[1]}
+                                        </div>
+                                        <a href="./${productPage}" class="product-btn">
+                                            Visit Product <i class="fa-solid fa-arrow-right"></i>
+                                        </a>
+                                    </div>
+                                </article>
+                            `;
+                        }).join("")}
+                    </div>
+                </div>
+                <div class="carousel-controls">
+                    <button class="carousel-arrow carousel-prev"><i class="fa-solid fa-chevron-left"></i></button>
+                    <div class="carousel-dots"></div>
+                    <button class="carousel-arrow carousel-next"><i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+            </div>
+        `;
+        productContainer.appendChild(section);
+        setupProductCarousel(section);
+    });
+}
+
+function setupProductCarousel(section){
+    const viewport = section.querySelector(".product-viewport");
+    const track = section.querySelector(".product-track");
+    const cards = [...section.querySelectorAll(".product-card")];
+    const prev = section.querySelector(".carousel-prev");
+    const next = section.querySelector(".carousel-next");
+    const dots = section.querySelector(".carousel-dots");
+    let index = 0;
+
+    function maxIndex(){ return Math.max(0, cards.length - 4); }
+
+    function createDots(){
+        dots.innerHTML = "";
+        for(let i=0; i<=maxIndex(); i++){
+            const dot = document.createElement("span");
+            dot.className = "carousel-dot";
+            if(i===index) dot.classList.add("active");
+            dot.addEventListener("click", () => { index = i; update(); });
+            dots.appendChild(dot);
+        }
+    }
+
+    function update(){
+        if(!cards.length) return;
+        const cardWidth = cards[0].offsetWidth + 20;
+        index = Math.min(index, maxIndex());
+        track.style.transform = `translateX(-${index * cardWidth}px)`;
+        dots.querySelectorAll(".carousel-dot").forEach((dot, i) => {
+            dot.classList.toggle("active", i === index);
+        });
+    }
+
+    next.addEventListener("click", () => { index = index < maxIndex() ? index + 1 : 0; update(); });
+    prev.addEventListener("click", () => { index = index > 0 ? index - 1 : maxIndex(); update(); });
+
+    let startX = 0;
+    viewport.addEventListener("pointerdown", e => { startX = e.clientX; });
+    viewport.addEventListener("pointerup", e => {
+        const diff = e.clientX - startX;
+        if(Math.abs(diff) > 50){
+            if(diff < 0 && index < maxIndex()) index++;
+            else if(diff > 0 && index > 0) index--;
+            update();
+        }
+    });
+
+    createDots();
+    update();
+    window.addEventListener("resize", () => { createDots(); update(); });
+}
+
+renderProducts();
+loadHomepageProductRatings();
+</script>
+
+</body>
+</html>

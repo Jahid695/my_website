@@ -1,0 +1,1592 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Contact Us — PVASMMITZone</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<style>
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:"Plus Jakarta Sans",sans-serif;
+    background:
+        radial-gradient(circle at 15% 10%,rgba(139,92,246,.08),transparent 28%),
+        radial-gradient(circle at 85% 25%,rgba(34,211,238,.05),transparent 25%),
+        #070b15;
+    color:#f7f8ff;
+    overflow-x:hidden;
+}
+
+body::after{
+    content:"";
+    position:fixed;
+    inset:-20%;
+    z-index:-2;
+    pointer-events:none;
+    background:
+        radial-gradient(circle at 20% 25%,rgba(76,0,255,.22),transparent 25%),
+        radial-gradient(circle at 78% 30%,rgba(34,211,238,.16),transparent 24%),
+        radial-gradient(circle at 55% 80%,rgba(236,72,153,.14),transparent 26%);
+    filter:blur(35px) saturate(125%);
+    animation:backgroundDrift 16s ease-in-out infinite alternate;
+}
+
+@keyframes backgroundDrift{
+
+    0%{
+        transform:translate3d(-2%,-1%,0) scale(1);
+    }
+
+    100%{
+        transform:translate3d(2%,1%,0) scale(1.08);
+    }
+
+}
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:-1;
+    opacity:.35;
+    background-image:
+        linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);
+    background-size:50px 50px;
+}
+
+a{
+    color:inherit;
+}
+
+button,
+input,
+textarea,
+select{
+    font-family:inherit;
+}
+
+.container{
+    width:min(1200px,92%);
+    margin:auto;
+}
+
+.gradient{
+    background:
+        linear-gradient(
+            90deg,
+            #a78bfa,
+            #ec4899,
+            #22d3ee
+        );
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+}
+
+
+/* =========================================================
+   CURSOR EFFECT
+========================================================= */
+
+.cursor-glow{
+    position:fixed;
+    top:0;
+    left:0;
+    width:280px;
+    height:280px;
+    z-index:-1;
+    pointer-events:none;
+    border-radius:50%;
+    background:
+        radial-gradient(
+            circle,
+            rgba(139,92,246,.18),
+            rgba(34,211,238,.08) 35%,
+            transparent 70%
+        );
+    filter:blur(8px);
+    transform:translate(-50%,-50%);
+}
+
+.cursor-particles{
+    position:fixed;
+    inset:0;
+    width:100%;
+    height:100%;
+    z-index:-1;
+    pointer-events:none;
+}
+
+
+/* =========================================================
+   CONTACT HERO
+========================================================= */
+
+.contact-hero{
+    min-height:400px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:75px 0 55px;
+    position:relative;
+}
+
+.contact-hero-content{
+    max-width:800px;
+}
+
+.contact-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:8px 14px;
+    border:1px solid rgba(139,92,246,.22);
+    border-radius:50px;
+    background:rgba(139,92,246,.08);
+    color:#c4b5fd;
+    font-size:10px;
+    font-weight:800;
+    letter-spacing:.7px;
+}
+
+.contact-badge i{
+    color:#a78bfa;
+}
+
+.contact-hero h1{
+    margin:18px 0 15px;
+    font-size:clamp(38px,5vw,60px);
+    line-height:1.05;
+    font-weight:800;
+    letter-spacing:-2px;
+}
+
+.contact-hero p{
+    max-width:650px;
+    margin:auto;
+    color:#9ca6b7;
+    font-size:14px;
+    line-height:1.8;
+}
+
+
+/* =========================================================
+   CONTACT SECTION
+========================================================= */
+
+.contact-section{
+    padding:20px 0 85px;
+}
+
+.contact-grid{
+    display:grid;
+    grid-template-columns:380px 1fr;
+    gap:25px;
+    align-items:stretch;
+}
+
+
+/* =========================================================
+   CONTACT INFO
+========================================================= */
+
+.contact-info-card,
+.contact-form-card{
+    position:relative;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:22px;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(24,37,54,.96),
+            rgba(11,17,32,.97)
+        );
+    box-shadow:
+        0 20px 50px rgba(0,0,0,.20);
+    overflow:hidden;
+}
+
+.contact-info-card::before,
+.contact-form-card::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:2px;
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #8b5cf6,
+            #ec4899,
+            #22d3ee,
+            transparent
+        );
+}
+
+.contact-info-card{
+    padding:30px;
+}
+
+.contact-info-card h2,
+.contact-form-card h2{
+    font-size:22px;
+    font-weight:800;
+    margin-bottom:9px;
+}
+
+.contact-info-card > p,
+.contact-form-card > p{
+    color:#919bab;
+    font-size:12px;
+    line-height:1.7;
+}
+
+.contact-details{
+    display:flex;
+    flex-direction:column;
+    gap:17px;
+    margin-top:28px;
+}
+
+.contact-detail{
+    display:flex;
+    align-items:center;
+    gap:13px;
+    padding:13px;
+    border:1px solid rgba(255,255,255,.06);
+    border-radius:13px;
+    background:rgba(255,255,255,.025);
+    transition:.3s ease;
+}
+
+.contact-detail:hover{
+    transform:translateX(4px);
+    border-color:rgba(139,92,246,.3);
+    background:rgba(139,92,246,.05);
+}
+
+.contact-icon{
+    width:42px;
+    height:42px;
+    flex-shrink:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:11px;
+    color:#c4b5fd;
+    background:rgba(139,92,246,.10);
+    border:1px solid rgba(139,92,246,.18);
+}
+
+.contact-detail h4{
+    margin-bottom:3px;
+    color:#fff;
+    font-size:11px;
+    font-weight:800;
+}
+
+.contact-detail a,
+.contact-detail span{
+    color:#9da7b8;
+    text-decoration:none;
+    font-size:11px;
+    line-height:1.5;
+}
+
+.contact-detail a:hover{
+    color:#c4b5fd;
+}
+
+.availability-box{
+    margin-top:22px;
+    padding:15px;
+    border-radius:14px;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(139,92,246,.08),
+            rgba(34,211,238,.04)
+        );
+    border:1px solid rgba(139,92,246,.14);
+}
+
+.availability-box strong{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    margin-bottom:5px;
+    font-size:11px;
+}
+
+.availability-box strong i{
+    color:#34d399;
+    font-size:8px;
+}
+
+.availability-box p{
+    color:#919bab;
+    font-size:10px;
+    line-height:1.6;
+}
+
+
+/* =========================================================
+   CONTACT FORM
+========================================================= */
+
+.contact-form-card{
+    padding:30px;
+}
+
+.form-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+    margin-top:23px;
+}
+
+.form-group{
+    margin-bottom:16px;
+}
+
+.form-group label{
+    display:block;
+    margin-bottom:7px;
+    color:#dce0ea;
+    font-size:11px;
+    font-weight:700;
+}
+
+.form-control{
+    width:100%;
+    min-height:45px;
+    padding:11px 13px;
+    color:#fff;
+    outline:none;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:11px;
+    background:rgba(255,255,255,.035);
+    font-size:11px;
+    transition:.25s ease;
+}
+
+textarea.form-control{
+    min-height:145px;
+    resize:vertical;
+}
+
+.form-control::placeholder{
+    color:#687386;
+}
+
+.form-control:focus{
+    border-color:rgba(139,92,246,.65);
+    background:rgba(139,92,246,.035);
+    box-shadow:0 0 25px rgba(139,92,246,.08);
+}
+
+.form-submit{
+    width:100%;
+    min-height:47px;
+    border:0;
+    border-radius:11px;
+    color:#fff;
+    background:
+        linear-gradient(
+            135deg,
+            #8b5cf6,
+            #ec4899
+        );
+    font-size:11px;
+    font-weight:800;
+    cursor:pointer;
+    transition:.3s ease;
+}
+
+.form-submit:hover{
+    transform:translateY(-2px);
+    box-shadow:
+        0 12px 30px rgba(139,92,246,.25);
+}
+
+.form-submit i{
+    margin-right:7px;
+}
+
+
+/* =========================================================
+   QUICK CONTACT
+========================================================= */
+
+.quick-contact{
+    padding:0 0 80px;
+}
+
+.quick-contact-heading{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.quick-contact-heading span{
+    color:#a78bfa;
+    font-size:10px;
+    font-weight:800;
+    letter-spacing:1.5px;
+}
+
+.quick-contact-heading h2{
+    margin-top:8px;
+    font-size:26px;
+    font-weight:800;
+}
+
+.quick-contact-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.quick-card{
+    padding:22px;
+    text-align:center;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:17px;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(24,37,54,.90),
+            rgba(11,17,32,.95)
+        );
+    transition:.3s ease;
+}
+
+.quick-card:hover{
+    transform:translateY(-4px);
+    border-color:rgba(139,92,246,.35);
+    box-shadow:0 15px 35px rgba(139,92,246,.10);
+}
+
+.quick-card-icon{
+    width:45px;
+    height:45px;
+    margin:0 auto 12px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:12px;
+    color:#c4b5fd;
+    background:rgba(139,92,246,.10);
+}
+
+.quick-card h3{
+    font-size:12px;
+    margin-bottom:5px;
+}
+
+.quick-card p{
+    color:#8993a5;
+    font-size:10px;
+    line-height:1.6;
+}
+
+.quick-card a{
+    display:inline-block;
+    margin-top:8px;
+    color:#a78bfa;
+    text-decoration:none;
+    font-size:10px;
+    font-weight:700;
+}
+
+.quick-card a:hover{
+    color:#ec4899;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:1050px){
+
+    .contact-grid{
+        grid-template-columns:330px 1fr;
+    }
+
+}
+
+
+@media(max-width:800px){
+
+    .contact-grid{
+        grid-template-columns:1fr;
+    }
+
+    .contact-info-card{
+        order:2;
+    }
+
+    .contact-form-card{
+        order:1;
+    }
+
+    .quick-contact-grid{
+        grid-template-columns:1fr;
+    }
+
+}
+
+
+@media(max-width:700px){
+
+    .contact-hero{
+        min-height:350px;
+        padding:60px 0 40px;
+    }
+
+    .contact-hero h1{
+        font-size:38px;
+    }
+
+    .contact-hero p{
+        font-size:12px;
+    }
+
+    .contact-section{
+        padding:10px 0 60px;
+    }
+
+    .contact-info-card,
+    .contact-form-card{
+        padding:22px;
+        border-radius:18px;
+    }
+
+    .form-row{
+        grid-template-columns:1fr;
+        gap:0;
+        margin-top:20px;
+    }
+
+    .quick-contact{
+        padding-bottom:60px;
+    }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+    body::after{
+        animation:none;
+    }
+
+    .cursor-glow{
+        display:none;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- =========================================================
+     HEADER LOADER
+     header-footer.html থেকে Header এখানে আসবে
+========================================================= -->
+
+<div id="site-header"></div>
+
+
+<!-- =========================================================
+     BACKGROUND EFFECT
+========================================================= -->
+
+<div class="cursor-glow" aria-hidden="true"></div>
+
+<canvas
+ class="cursor-particles"
+ id="cursorParticles"
+ aria-hidden="true">
+</canvas>
+
+
+<!-- =========================================================
+     MAIN
+========================================================= -->
+
+<main>
+
+<!-- =========================================================
+     CONTACT HERO
+========================================================= -->
+
+<section class="contact-hero">
+
+<div class="contact-hero-content">
+
+<span class="contact-badge">
+
+<i class="fa-solid fa-headset"></i>
+
+WE'RE HERE TO HELP
+
+</span>
+
+<h1>
+
+Contact <span class="gradient">PVASMMITZone</span>
+
+</h1>
+
+<p>
+
+Have a question about a product, service or your order?
+Send us a message and our support team will get back to
+you as soon as possible.
+
+</p>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     CONTACT AREA
+========================================================= -->
+
+<section class="contact-section">
+
+<div class="container">
+
+<div class="contact-grid">
+
+
+<!-- CONTACT INFORMATION -->
+
+<div class="contact-info-card">
+
+<h2>
+
+Get In Touch
+
+</h2>
+
+<p>
+
+Choose any of the available contact methods below.
+We are available to assist you with your questions.
+
+</p>
+
+<div class="contact-details">
+
+<div class="contact-detail">
+
+<div class="contact-icon">
+
+<i class="fa-solid fa-location-dot"></i>
+
+</div>
+
+<div>
+
+<h4>Location</h4>
+
+<span>
+Los Angeles, California, United States
+</span>
+
+</div>
+
+</div>
+
+
+<div class="contact-detail">
+
+<div class="contact-icon">
+
+<i class="fa-brands fa-whatsapp"></i>
+
+</div>
+
+<div>
+
+<h4>WhatsApp</h4>
+
+<a
+ href="https://wa.me/19382610057"
+ target="_blank"
+ rel="noopener">
+
++1 (938) 261-0057
+
+</a>
+
+</div>
+
+</div>
+
+
+<div class="contact-detail">
+
+<div class="contact-icon">
+
+<i class="fa-brands fa-telegram"></i>
+
+</div>
+
+<div>
+
+<h4>Telegram</h4>
+
+<a
+ href="https://t.me/pvasmmitzone"
+ target="_blank"
+ rel="noopener">
+
+@pvasmmitzone
+
+</a>
+
+</div>
+
+</div>
+
+
+<div class="contact-detail">
+
+<div class="contact-icon">
+
+<i class="fa-solid fa-envelope"></i>
+
+</div>
+
+<div>
+
+<h4>Email</h4>
+
+<a href="mailto:pvasmmitzone@gmail.com">
+
+pvasmmitzone@gmail.com
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="availability-box">
+
+<strong>
+
+<i class="fa-solid fa-circle"></i>
+
+Available 24/7
+
+</strong>
+
+<p>
+
+Our support channels are available around the clock.
+Response time may vary depending on the type of inquiry.
+
+</p>
+
+</div>
+
+</div>
+
+
+<!-- CONTACT FORM -->
+
+<div class="contact-form-card">
+
+<h2>
+
+Send Us A Message
+
+</h2>
+
+<p>
+
+Fill out the form below and provide as much information
+as possible so we can assist you properly.
+
+</p>
+
+<form id="contactForm">
+
+<div class="form-row">
+
+<div class="form-group">
+
+<label for="name">
+
+Your Name
+
+</label>
+
+<input
+ type="text"
+ id="name"
+ name="name"
+ class="form-control"
+ placeholder="Enter your name"
+ required>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="email">
+
+Email Address
+
+</label>
+
+<input
+ type="email"
+ id="email"
+ name="email"
+ class="form-control"
+ placeholder="Enter your email"
+ required>
+
+</div>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="subject">
+
+Subject
+
+</label>
+
+<input
+ type="text"
+ id="subject"
+ name="subject"
+ class="form-control"
+ placeholder="What can we help you with?"
+ required>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="message">
+
+Your Message
+
+</label>
+
+<textarea
+    id="message"
+    name="message"
+    class="form-control"
+    placeholder="Write your message here..."
+    required></textarea>
+
+</div>
+
+
+<button
+ type="submit"
+ class="form-submit">
+
+<i class="fa-solid fa-paper-plane"></i>
+
+Send Message
+
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     QUICK CONTACT
+========================================================= -->
+
+<section class="quick-contact">
+
+<div class="container">
+
+<div class="quick-contact-heading">
+
+<span>
+
+QUICK CONTACT
+
+</span>
+
+<h2>
+
+Choose Your Preferred Method
+
+</h2>
+
+</div>
+
+
+<div class="quick-contact-grid">
+
+
+<div class="quick-card">
+
+<div class="quick-card-icon">
+
+<i class="fa-brands fa-whatsapp"></i>
+
+</div>
+
+<h3>
+
+WhatsApp
+
+</h3>
+
+<p>
+
+Chat with us directly through WhatsApp.
+
+</p>
+
+<a
+ href="https://wa.me/19382610057"
+ target="_blank"
+ rel="noopener">
+
+Start Chat →
+
+</a>
+
+</div>
+
+
+<div class="quick-card">
+
+<div class="quick-card-icon">
+
+<i class="fa-brands fa-telegram"></i>
+
+</div>
+
+<h3>
+
+Telegram
+
+</h3>
+
+<p>
+
+Connect with our team through Telegram.
+
+</p>
+
+<a
+ href="https://t.me/pvasmmitzone"
+ target="_blank"
+ rel="noopener">
+
+Message Us →
+
+</a>
+
+</div>
+
+
+<div class="quick-card">
+
+<div class="quick-card-icon">
+
+<i class="fa-solid fa-envelope"></i>
+
+</div>
+
+<h3>
+
+Email
+
+</h3>
+
+<p>
+
+Send us a detailed message by email.
+
+</p>
+
+<a href="mailto:pvasmmitzone@gmail.com">
+
+Email Us →
+
+</a>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+
+<!-- =========================================================
+     FOOTER LOADER
+     header-footer.html থেকে Footer এখানে আসবে
+========================================================= -->
+
+<div id="site-footer"></div>
+
+
+<!-- =========================================================
+     HEADER + FOOTER LOADER
+========================================================= -->
+
+<script>
+
+document.addEventListener("DOMContentLoaded", async function(){
+
+    try{
+
+        const response =
+            await fetch("header-footer.html");
+
+        if(!response.ok){
+
+            throw new Error(
+                "header-footer.html could not be loaded."
+            );
+
+        }
+
+        const html =
+            await response.text();
+
+        const parser =
+            new DOMParser();
+
+        const doc =
+            parser.parseFromString(
+                html,
+                "text/html"
+            );
+
+
+        /* =====================================================
+           LOAD HEADER
+        ===================================================== */
+
+        const header =
+            doc.querySelector(".site-header");
+
+        const headerContainer =
+            document.getElementById(
+                "site-header"
+            );
+
+        if(header && headerContainer){
+
+            headerContainer.innerHTML =
+                header.outerHTML;
+
+        }
+
+
+        /* =====================================================
+           LOAD FOOTER
+        ===================================================== */
+
+        const footer =
+            doc.querySelector(".pvasm-footer");
+
+        const footerContainer =
+            document.getElementById(
+                "site-footer"
+            );
+
+        if(footer && footerContainer){
+
+            footerContainer.innerHTML =
+                footer.outerHTML;
+
+        }
+
+
+        /* =====================================================
+           LOAD HEADER/FOOTER STYLE
+        ===================================================== */
+
+        doc.querySelectorAll("style").forEach(
+            styleElement => {
+
+                const newStyle =
+                    document.createElement("style");
+
+                newStyle.textContent =
+                    styleElement.textContent;
+
+                document.head.appendChild(
+                    newStyle
+                );
+
+            }
+        );
+
+
+        /* =====================================================
+           LOAD EXTERNAL STYLESHEETS
+        ===================================================== */
+
+        doc.querySelectorAll(
+            'link[rel="stylesheet"]'
+        ).forEach(
+            linkElement => {
+
+                const href =
+                    linkElement.getAttribute("href");
+
+                if(
+                    href &&
+                    !document.querySelector(
+                        `link[href="${href}"]`
+                    )
+                ){
+
+                    const newLink =
+                        document.createElement("link");
+
+                    newLink.rel =
+                        "stylesheet";
+
+                    newLink.href =
+                        href;
+
+                    document.head.appendChild(
+                        newLink
+                    );
+
+                }
+
+            }
+        );
+
+
+        /* =====================================================
+           EXECUTE HEADER/FOOTER SCRIPTS
+        ===================================================== */
+
+        doc.querySelectorAll("script").forEach(
+            scriptElement => {
+
+                if(scriptElement.src){
+
+                    const newScript =
+                        document.createElement("script");
+
+                    newScript.src =
+                        scriptElement.src;
+
+                    newScript.async =
+                        false;
+
+                    document.body.appendChild(
+                        newScript
+                    );
+
+                }
+                else{
+
+                    const newScript =
+                        document.createElement("script");
+
+                    newScript.textContent =
+                        scriptElement.textContent;
+
+                    document.body.appendChild(
+                        newScript
+                    );
+
+                }
+
+            }
+        );
+
+
+    }
+    catch(error){
+
+        console.error(
+            "Header/Footer loading error:",
+            error
+        );
+
+    }
+
+});
+
+
+/* =========================================================
+   CURSOR PARTICLES
+========================================================= */
+
+const particleCanvas =
+document.getElementById("cursorParticles");
+
+const particleContext =
+particleCanvas &&
+particleCanvas.getContext("2d");
+
+const cursorGlow =
+document.querySelector(".cursor-glow");
+
+
+if(
+    particleContext &&
+    !window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+    ).matches
+){
+
+    const particles=[];
+
+    const colors=[
+        "#a78bfa",
+        "#ec4899",
+        "#22d3ee",
+        "#fbbf24",
+        "#34d399"
+    ];
+
+    const cursor={
+        x:-1000,
+        y:-1000
+    };
+
+
+    function resizeCanvas(){
+
+        const scale =
+            window.devicePixelRatio || 1;
+
+
+        particleCanvas.width =
+            window.innerWidth * scale;
+
+
+        particleCanvas.height =
+            window.innerHeight * scale;
+
+
+        particleCanvas.style.width =
+            window.innerWidth+"px";
+
+
+        particleCanvas.style.height =
+            window.innerHeight+"px";
+
+
+        particleContext.setTransform(
+            scale,
+            0,
+            0,
+            scale,
+            0,
+            0
+        );
+
+    }
+
+
+    for(let i=0;i<32;i++){
+
+        const homeX =
+            Math.random() *
+            window.innerWidth;
+
+        const homeY =
+            Math.random() *
+            window.innerHeight;
+
+
+        particles.push({
+
+            x:homeX,
+
+            y:homeY,
+
+            homeX,
+
+            homeY,
+
+            size:
+                1.5+
+                Math.random()*2.8,
+
+            color:
+                colors[
+                    i%colors.length
+                ],
+
+            alpha:
+                .35+
+                Math.random()*.5
+
+        });
+
+    }
+
+
+    window.addEventListener(
+        "resize",
+        resizeCanvas
+    );
+
+
+    document.addEventListener(
+        "pointermove",
+        e=>{
+
+            cursor.x=e.clientX;
+
+            cursor.y=e.clientY;
+
+        },
+        {passive:true}
+    );
+
+
+    function animateParticles(){
+
+        particleContext.clearRect(
+            0,
+            0,
+            window.innerWidth,
+            window.innerHeight
+        );
+
+
+        particles.forEach(
+            particle=>{
+
+                const dx =
+                    cursor.x -
+                    particle.homeX;
+
+                const dy =
+                    cursor.y -
+                    particle.homeY;
+
+                const distance =
+                    Math.hypot(dx,dy);
+
+                const radius=190;
+
+                const influence =
+                    distance<radius
+                    ?
+                    Math.pow(
+                        1-distance/radius,
+                        2
+                    )
+                    :
+                    0;
+
+
+                const targetX =
+                    particle.homeX+
+                    dx*influence;
+
+                const targetY =
+                    particle.homeY+
+                    dy*influence;
+
+
+                particle.x +=
+                    (targetX-particle.x)*.12;
+
+                particle.y +=
+                    (targetY-particle.y)*.12;
+
+
+                particleContext.globalAlpha =
+                    particle.alpha;
+
+                particleContext.fillStyle =
+                    particle.color;
+
+
+                particleContext.beginPath();
+
+
+                particleContext.arc(
+                    particle.x,
+                    particle.y,
+                    particle.size,
+                    0,
+                    Math.PI*2
+                );
+
+
+                particleContext.fill();
+
+            }
+        );
+
+
+        particleContext.globalAlpha=1;
+
+
+        requestAnimationFrame(
+            animateParticles
+        );
+
+    }
+
+
+    resizeCanvas();
+
+    animateParticles();
+
+}
+
+
+if(
+    cursorGlow &&
+    !window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+    ).matches
+){
+
+    document.addEventListener(
+        "pointermove",
+        e=>{
+
+            cursorGlow.style.left =
+                e.clientX+"px";
+
+            cursorGlow.style.top =
+                e.clientY+"px";
+
+        },
+        {passive:true}
+    );
+
+}
+
+
+/* =========================================================
+   CONTACT FORM
+========================================================= */
+
+const contactForm =
+document.getElementById("contactForm");
+
+
+if(contactForm){
+
+    contactForm.addEventListener(
+        "submit",
+        function(e){
+
+            e.preventDefault();
+
+
+            const button =
+                this.querySelector(
+                    ".form-submit"
+                );
+
+
+            const originalText =
+                button.innerHTML;
+
+
+            button.innerHTML =
+                '<i class="fa-solid fa-check"></i> Message Ready';
+
+
+            button.style.background =
+                "linear-gradient(135deg,#22c55e,#14b8a6)";
+
+
+            setTimeout(
+                ()=>{
+
+                    button.innerHTML =
+                        originalText;
+
+                    button.style.background =
+                        "";
+
+                    contactForm.reset();
+
+                },
+                2200
+            );
+
+        }
+    );
+
+}
+
+</script>
+
+
+</body>
+</html>

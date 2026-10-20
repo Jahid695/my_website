@@ -1,0 +1,2232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Reviews Service — PVASMMITZone</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<style>
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    position:relative;
+    isolation:isolate;
+    overflow-x:hidden;
+
+    font-family:"Plus Jakarta Sans",sans-serif;
+
+    background:
+        radial-gradient(
+            circle at 15% 10%,
+            rgba(139,92,246,.08),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 85% 25%,
+            rgba(34,211,238,.05),
+            transparent 25%
+        ),
+        #070b15;
+
+    color:#f7f8ff;
+}
+
+
+/* =========================================================
+   ANIMATED BACKGROUND
+========================================================= */
+
+body::before{
+    content:"";
+
+    position:fixed;
+    inset:0;
+
+    z-index:-1;
+    pointer-events:none;
+
+    opacity:.35;
+
+    background-image:
+        linear-gradient(
+            rgba(255,255,255,.018) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.018) 1px,
+            transparent 1px
+        );
+
+    background-size:50px 50px;
+}
+
+
+body::after{
+    content:"";
+
+    position:fixed;
+    inset:-20%;
+
+    z-index:-2;
+    pointer-events:none;
+
+    background:
+        radial-gradient(
+            circle at 20% 25%,
+            rgba(76,0,255,.22),
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 78% 30%,
+            rgba(34,211,238,.16),
+            transparent 24%
+        ),
+        radial-gradient(
+            circle at 55% 80%,
+            rgba(236,72,153,.14),
+            transparent 26%
+        );
+
+    filter:
+        blur(35px)
+        saturate(125%);
+
+    animation:
+        backgroundDrift
+        16s
+        ease-in-out
+        infinite
+        alternate;
+}
+
+
+@keyframes backgroundDrift{
+
+    0%{
+        transform:
+            translate3d(
+                -2%,
+                -1%,
+                0
+            )
+            scale(1);
+    }
+
+    100%{
+        transform:
+            translate3d(
+                2%,
+                1%,
+                0
+            )
+            scale(1.08);
+    }
+
+}
+
+
+/* =========================================================
+   CURSOR GLOW
+========================================================= */
+
+.cursor-glow{
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:280px;
+    height:280px;
+
+    z-index:-1;
+
+    pointer-events:none;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(139,92,246,.18),
+            rgba(34,211,238,.08) 35%,
+            transparent 70%
+        );
+
+    filter:blur(8px);
+
+    transform:
+        translate(
+            -50%,
+            -50%
+        );
+
+    transition:
+        left .18s ease-out,
+        top .18s ease-out;
+}
+
+
+/* =========================================================
+   CURSOR PARTICLES CANVAS
+========================================================= */
+
+.cursor-particles{
+    position:fixed;
+
+    inset:0;
+
+    width:100%;
+    height:100%;
+
+    z-index:-1;
+
+    pointer-events:none;
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+========================================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+    body::after{
+        animation:none;
+    }
+
+    .cursor-glow,
+    .cursor-particles{
+        display:none;
+    }
+
+}
+
+
+a{
+    color:inherit;
+}
+
+button,
+input{
+    font-family:inherit;
+}
+
+.container{
+    width:min(1200px,92%);
+    margin:auto;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.reviews-hero{
+    display:grid;
+    grid-template-columns:1fr;
+    align-items:center;
+    gap:32px;
+
+    position:relative;
+
+    min-height:500px;
+
+    padding:80px 0 65px;
+
+    text-align:center;
+}
+
+.reviews-hero .hero-layout{
+    display:grid;
+    grid-template-columns:1.15fr .85fr;
+    align-items:center;
+    gap:32px;
+}
+
+.hero-copy{
+    max-width:620px;
+}
+
+.hero-badge{
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    padding:8px 13px;
+
+    border:
+        1px solid
+        rgba(139,92,246,.20);
+
+    border-radius:50px;
+
+    background:
+        rgba(139,92,246,.08);
+
+    color:#c4b5fd;
+
+    font-size:10px;
+
+    font-weight:800;
+
+    letter-spacing:.3px;
+}
+
+.hero-badge i{
+    color:#a78bfa;
+}
+
+.reviews-hero h1{
+    margin:18px 0 16px;
+
+    font-size:
+        clamp(34px,3.4vw,58px);
+
+    line-height:1.08;
+
+    font-weight:800;
+
+    letter-spacing:-1.6px;
+}
+
+.gradient{
+    background:
+        linear-gradient(
+            90deg,
+            #a78bfa,
+            #ec4899,
+            #22d3ee
+        );
+
+    -webkit-background-clip:text;
+
+    background-clip:text;
+
+    color:transparent;
+}
+
+.reviews-hero p{
+    max-width:590px;
+    margin:0 auto;
+
+    color:#9ca6b7;
+
+    font-size:14px;
+
+    line-height:1.85;
+}
+
+.hero-actions{
+    display:flex;
+
+    justify-content:center;
+
+    gap:12px;
+
+    margin-top:25px;
+    flex-wrap:wrap;
+}
+
+.hero-visual{
+    display:flex;
+    justify-content:center;
+}
+
+.hero-visual-card{
+    width:min(100%, 430px);
+    padding:18px;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:22px;
+    background:linear-gradient(145deg, rgba(18,27,44,.96), rgba(10,16,28,.96));
+    box-shadow:0 18px 45px rgba(30,41,59,.22);
+}
+
+.hero-visual-card img{
+    display:block;
+    width:100%;
+    height:380px;
+    object-fit:cover;
+    border-radius:16px;
+}
+
+.hero-pci-box{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:150px;
+    min-height:72px;
+    margin-top:0;
+    padding:10px 14px;
+    border:1px dashed rgba(255,255,255,.22);
+    border-radius:12px;
+    background:rgba(255,255,255,.035);
+}
+
+.hero-pci-box img{
+    display:block;
+    max-width:100%;
+    max-height:50px;
+    object-fit:contain;
+}
+
+.hero-btn{
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:8px;
+
+    padding:12px 17px;
+
+    border-radius:11px;
+
+    text-decoration:none;
+
+    font-size:11px;
+
+    font-weight:800;
+
+    transition:.25s ease;
+}
+
+.hero-btn.primary{
+    color:#fff;
+
+    background:
+        linear-gradient(
+            135deg,
+            #8b5cf6,
+            #ec4899
+        );
+}
+
+.hero-btn.secondary{
+    color:#d8dbea;
+
+    border:
+        1px solid
+        rgba(255,255,255,.10);
+
+    background:
+        rgba(255,255,255,.04);
+}
+
+.hero-btn:hover{
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 10px 30px
+        rgba(139,92,246,.18);
+}
+
+
+/* =========================================================
+   SECTION HEADER
+========================================================= */
+
+.section-heading{
+    text-align:center;
+
+    margin-bottom:32px;
+}
+
+.section-heading .tag{
+    color:#a78bfa;
+
+    font-size:11px;
+
+    font-weight:800;
+
+    letter-spacing:1.4px;
+}
+
+.section-heading h2{
+    margin:9px 0 8px;
+
+    font-size:31px;
+
+    font-weight:800;
+}
+
+.section-heading p{
+    color:#919bab;
+
+    font-size:13px;
+}
+
+
+/* =========================================================
+   REVIEWS SERVICES
+========================================================= */
+
+.reviews-services{
+    padding:65px 0;
+}
+
+.search-wrap{
+    max-width:550px;
+
+    margin:
+        0 auto 38px;
+
+    position:relative;
+}
+
+.search-wrap i{
+    position:absolute;
+
+    left:17px;
+    top:50%;
+
+    transform:
+        translateY(-50%);
+
+    color:#919bab;
+}
+
+#reviewsSearch{
+    width:100%;
+
+    height:49px;
+
+    padding:
+        0 18px 0 45px;
+
+    color:#fff;
+
+    background:
+        rgba(255,255,255,.04);
+
+    border:
+        1px solid
+        rgba(255,255,255,.09);
+
+    border-radius:14px;
+
+    outline:none;
+
+    transition:.25s ease;
+}
+
+#reviewsSearch:focus{
+    border-color:
+        rgba(139,92,246,.6);
+
+    box-shadow:
+        0 0 30px
+        rgba(139,92,246,.08);
+}
+
+#reviewsSearch::placeholder{
+    color:#70798a;
+}
+
+
+/* =========================================================
+   INFORMATION
+========================================================= */
+
+.reviews-info{
+    padding:65px 0;
+}
+
+.info-wrapper{
+    display:grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:25px;
+}
+
+.info-box{
+    padding:28px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.08);
+
+    border-radius:20px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(24,37,54,.94),
+            rgba(11,17,32,.97)
+        );
+}
+
+.info-box h3{
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    margin-bottom:15px;
+
+    font-size:18px;
+}
+
+.info-box h3 i{
+    color:#a78bfa;
+}
+
+.info-box p{
+    color:#9ca6b7;
+
+    font-size:12px;
+
+    line-height:1.8;
+}
+
+.info-list{
+    margin-top:17px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:10px;
+}
+
+.info-list div{
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:10px;
+
+    color:#b9c1cf;
+
+    font-size:11px;
+
+    line-height:1.6;
+}
+
+.info-list i{
+    margin-top:3px;
+
+    color:#22d3ee;
+
+    font-size:10px;
+}
+
+
+/* =========================================================
+   FAQ
+========================================================= */
+
+.faq-section{
+    padding:70px 0;
+}
+
+.faq-container{
+    max-width:880px;
+
+    margin:auto;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:13px;
+}
+
+.faq-item{
+    padding:18px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.08);
+
+    border-radius:17px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(24,37,54,.95),
+            rgba(11,17,32,.97)
+        );
+
+    cursor:pointer;
+
+    transition:.3s ease;
+
+    overflow:hidden;
+}
+
+.faq-question{
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:20px;
+
+    font-size:13px;
+
+    font-weight:700;
+}
+
+.faq-icon{
+    width:33px;
+    height:33px;
+
+    flex-shrink:0;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:10px;
+
+    color:#a78bfa;
+
+    background:
+        rgba(139,92,246,.08);
+
+    border:
+        1px solid
+        rgba(139,92,246,.20);
+
+    transition:.3s ease;
+}
+
+.faq-answer{
+    max-height:0;
+
+    opacity:0;
+
+    overflow:hidden;
+
+    color:#aeb7c7;
+
+    font-size:12px;
+
+    line-height:1.7;
+
+    transition:
+        max-height .4s ease,
+        opacity .3s ease,
+        margin-top .3s ease;
+}
+
+.faq-item.active{
+    border-color:
+        rgba(139,92,246,.45);
+}
+
+.faq-item.active .faq-answer{
+    max-height:160px;
+
+    opacity:1;
+
+    margin-top:13px;
+}
+
+.faq-item.active .faq-icon{
+    color:#fff;
+
+    background:
+        linear-gradient(
+            135deg,
+            #8b5cf6,
+            #ec4899
+        );
+
+    border-color:transparent;
+
+    transform:rotate(180deg);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:800px){
+
+    .reviews-hero{
+        grid-template-columns:1fr;
+
+        padding:
+            60px 0 50px;
+
+        text-align:center;
+    }
+
+    .reviews-hero p{
+        margin:auto;
+    }
+
+    .hero-actions{
+        justify-content:center;
+    }
+
+    .hero-pci-box{
+        margin:0 auto;
+    }
+
+    .info-wrapper{
+        grid-template-columns:1fr;
+    }
+
+}
+
+
+@media(max-width:700px){
+
+    .reviews-hero{
+        padding-top:48px;
+    }
+
+    .reviews-hero h1{
+        font-size:38px;
+    }
+
+    .hero-actions{
+        flex-direction:column;
+
+        align-items:stretch;
+    }
+
+    .hero-btn{
+        width:100%;
+    }
+
+    .reviews-services,
+    .reviews-info,
+    .faq-section{
+        padding:50px 0;
+    }
+
+    .section-heading h2{
+        font-size:27px;
+    }
+
+}
+
+
+/* =========================================================
+   PRODUCT RATING STYLES
+   APPROVED REVIEWS ONLY
+========================================================= */
+.reviews-product-rating{
+    display:flex;
+    align-items:center;
+    gap:4px;
+    margin-bottom:5px;
+    line-height:1;
+    white-space:nowrap;
+}
+
+.reviews-product-rating-stars{
+    display:inline-flex;
+    align-items:center;
+    gap:1px;
+}
+
+.reviews-product-rating-star{
+    position:relative;
+    display:inline-block;
+    width:9px;
+    height:12px;
+    line-height:12px;
+    font-size:10px;
+    color:transparent;
+    -webkit-text-stroke:1px #f4a000;
+    background:linear-gradient(
+        90deg,
+        #f4a000 var(--star-fill,0%),
+        transparent var(--star-fill,0%)
+    );
+    -webkit-background-clip:text;
+    background-clip:text;
+}
+
+.reviews-product-rating-value{
+    color:#e5e7eb;
+    font-size:8px;
+    font-weight:800;
+}
+
+.reviews-product-rating-count{
+    color:#737d8e;
+    font-size:7px;
+    font-weight:500;
+}
+
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     COMMON HEADER
+========================================================= -->
+
+<div id="site-header"></div>
+
+
+
+<!-- =========================================================
+     CURSOR GLOW + PARTICLES
+========================================================= -->
+
+<div
+class="cursor-glow"
+aria-hidden="true">
+</div>
+
+
+<canvas
+class="cursor-particles"
+id="cursorParticles"
+aria-hidden="true">
+</canvas>
+
+
+
+<!-- =========================================================
+     MAIN
+========================================================= -->
+
+<main>
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section class="reviews-hero container">
+
+
+    <div>
+
+
+        <span class="hero-badge">
+
+            <i class="fa-solid fa-building-columns"></i>
+
+            REVIEWS SERVICES
+
+        </span>
+
+
+        <h1>
+
+            Reviews &
+
+            <span class="gradient">
+
+                Rating Services
+
+            </span>
+
+        </h1>
+
+
+        <p>
+
+            Explore reviews and ratings for various products and services.
+            Find the information you need to make informed decisions.
+
+        </p>
+
+        </p>
+
+
+        <div class="hero-actions">
+
+            <a
+                href="#reviews-services"
+                class="hero-btn primary">
+
+                Explore Accounts
+
+                <i class="fa-solid fa-arrow-down"></i>
+
+            </a>
+
+
+            <a
+                href="contact-us.html"
+                class="hero-btn secondary">
+
+                Contact Us
+
+                <i class="fa-solid fa-envelope"></i>
+
+            </a>
+
+        </div>
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =========================================================
+     SERVICES
+========================================================= -->
+
+<section
+    class="reviews-services"
+    id="reviews-services">
+
+
+    <div class="container">
+
+
+        <div class="section-heading">
+
+            <span class="tag">
+
+                REVIEWS CATEGORIES
+
+            </span>
+
+
+            <h2>
+
+                Explore Reviews and Ratings
+
+            </h2>
+
+
+            <p>
+
+                Browse the available review and rating categories.
+
+            </p>
+
+        </div>
+
+        <!-- reviews-section.html ফাইলটি এখানে load হবে এবং স্টাইল এক্সিকিউট করবে -->
+        <div id="reviews-section-container"></div>
+
+        <script>
+        (async function loadReviewsSection(){
+            const container = document.getElementById("reviews-section-container");
+            if(!container) return;
+
+            try{
+                const resp = await fetch("reviews-section.html", { cache: "no-cache" });
+                if(!resp.ok) throw new Error(`Failed to load reviews-section.html (${resp.status})`);
+                
+                const htmlText = await resp.text();
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(htmlText, "text/html");
+
+                // reviews-section.html এর ভেতরের স্টাইলগুলো পেজে যুক্ত করা
+                doc.querySelectorAll("style").forEach(styleEl => {
+                    const newStyle = document.createElement("style");
+                    newStyle.textContent = styleEl.textContent;
+                    document.head.appendChild(newStyle);
+                });
+
+                // মূল কনটেন্ট ডিভে বসিয়ে দেওয়া
+                container.innerHTML = doc.body.innerHTML;
+
+                // যদি reviews-section.html এ কোনো স্ক্রিপ্ট থাকে তা রান করানো
+                doc.querySelectorAll("script").forEach(oldScript => {
+                    const newScript = document.createElement("script");
+                    if(oldScript.src){
+                        newScript.src = oldScript.src;
+                    } else {
+                        newScript.textContent = oldScript.textContent;
+                    }
+                    document.body.appendChild(newScript);
+                });
+
+            } catch(err) {
+                console.error("Reviews section loader error:", err);
+                container.innerHTML = "<div style='color:#fbbf24;padding:12px;border-radius:8px;background:rgba(0,0,0,.25);text-align:center;'>Section failed to load. Please ensure you are running on a local server (Live Server).</div>";
+            }
+        })();
+        </script>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     INFORMATION
+========================================================= -->
+
+<section class="reviews-info">
+
+
+    <div class="container">
+
+
+        <div class="section-heading">
+
+            <span class="tag">
+
+                IMPORTANT INFORMATION
+
+            </span>
+
+
+            <h2>
+
+                Before Using a Financial Service
+
+            </h2>
+
+
+            <p>
+
+                A few important points to keep in mind.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="info-wrapper">
+
+
+            <div class="info-box">
+
+                <h3>
+
+                    <i class="fa-solid fa-shield-halved"></i>
+
+                    Security & Verification
+
+                </h3>
+
+
+                <p>
+
+                    Financial services may have identity,
+                    verification, eligibility and regional
+                    requirements. Always use official channels
+                    when opening or managing a financial account.
+
+                </p>
+
+
+                <div class="info-list">
+
+                    <div>
+
+                        <i class="fa-solid fa-check"></i>
+
+                        Use accurate personal or business information.
+
+                    </div>
+
+
+                    <div>
+
+                        <i class="fa-solid fa-check"></i>
+
+                        Review the provider's current terms.
+
+                    </div>
+
+
+                    <div>
+
+                        <i class="fa-solid fa-check"></i>
+
+                        Never share passwords or security codes.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="info-box">
+
+                <h3>
+
+                    <i class="fa-solid fa-circle-info"></i>
+
+                    Service Information
+
+                </h3>
+
+
+                <p>
+
+                    Availability, features, fees and eligibility
+                    can vary by provider and region. Please verify
+                    the latest information directly with the relevant
+                    financial service provider.
+
+                </p>
+
+
+                <div class="info-list">
+
+                    <div>
+
+                        <i class="fa-solid fa-check"></i>
+
+                        Check current availability.
+
+                    </div>
+
+
+                    <div>
+
+                        <i class="fa-solid fa-check"></i>
+
+                        Review fees and applicable conditions.
+
+                    </div>
+
+
+                    <div>
+
+                        <i class="fa-solid fa-check"></i>
+
+                        Contact support if you need clarification.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     FAQ
+========================================================= -->
+
+<section class="faq-section">
+
+
+    <div class="container">
+
+
+        <div class="section-heading">
+
+            <span class="tag">
+
+                FREQUENTLY ASKED QUESTIONS
+
+            </span>
+
+
+            <h2>
+
+                Reviews Services FAQ
+
+            </h2>
+
+
+            <p>
+
+                Quick answers to common questions.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="faq-container">
+
+
+            <!-- FAQ 1 -->
+
+            <div class="faq-item">
+
+                <div class="faq-question">
+
+                    <span>
+                        What review and rating services are covered on this page?
+                    </span>
+
+                    <span class="faq-icon">
+
+                        <i class="fa-solid fa-chevron-down"></i>
+
+                    </span>
+
+                </div>
+
+
+                <div class="faq-answer">
+
+                    This page provides general information and
+                    navigation for selected review and rating services.
+
+                </div>
+
+            </div>
+
+
+
+            <!-- FAQ 2 -->
+
+            <div class="faq-item">
+
+                <div class="faq-question">
+
+                    <span>
+                        Can I open a financial account through this page?
+                    </span>
+
+                    <span class="faq-icon">
+
+                        <i class="fa-solid fa-chevron-down"></i>
+
+                    </span>
+
+                </div>
+
+
+                <div class="faq-answer">
+
+                    Account opening and verification should be
+                    completed through the relevant financial
+                    provider's official process and according to
+                    its eligibility requirements.
+
+                </div>
+
+            </div>
+
+
+
+            <!-- FAQ 3 -->
+
+            <div class="faq-item">
+
+                <div class="faq-question">
+
+                    <span>
+                        Can availability vary by country?
+                    </span>
+
+                    <span class="faq-icon">
+
+                        <i class="fa-solid fa-chevron-down"></i>
+
+                    </span>
+
+                </div>
+
+
+                <div class="faq-answer">
+
+                    Yes. Financial products and payment services
+                    can have different availability, features and
+                    requirements depending on location.
+
+                </div>
+
+            </div>
+
+
+
+            <!-- FAQ 4 -->
+
+            <div class="faq-item">
+
+                <div class="faq-question">
+
+                    <span>
+                        How can I ask about a service?
+                    </span>
+
+                    <span class="faq-icon">
+
+                        <i class="fa-solid fa-chevron-down"></i>
+
+                    </span>
+
+                </div>
+
+
+                <div class="faq-answer">
+
+                    You can use the Contact Us page for general
+                    questions about the information presented
+                    on PVASMMITZone.
+
+                </div>
+
+            </div>
+
+
+
+            <!-- FAQ 5 -->
+
+            <div class="faq-item">
+
+                <div class="faq-question">
+
+                    <span>
+                        Can service information change?
+                    </span>
+
+                    <span class="faq-icon">
+
+                        <i class="fa-solid fa-chevron-down"></i>
+
+                    </span>
+
+                </div>
+
+
+                <div class="faq-answer">
+
+                    Yes. Fees, eligibility, availability and
+                    features may change. Always check the latest
+                    information with the relevant provider.
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+
+<!-- =========================================================
+     COMMON FOOTER
+========================================================= -->
+
+<div id="site-footer"></div>
+
+
+
+<script>
+
+/* =========================================================
+   COMMON HEADER + FOOTER LOADER
+========================================================= */
+
+(async function loadCommonHeaderFooter(){
+
+    const headerContainer =
+        document.getElementById("site-header");
+
+    const footerContainer =
+        document.getElementById("site-footer");
+
+
+    if(!headerContainer || !footerContainer){
+        return;
+    }
+
+
+    try{
+
+        const response =
+            await fetch("header-footer.html", {
+                method:"GET",
+                cache:"no-cache"
+            });
+
+
+        if(!response.ok){
+            throw new Error(
+                "Unable to load header-footer.html"
+            );
+        }
+
+
+        const html =
+            await response.text();
+
+
+        const parser =
+            new DOMParser();
+
+
+        const documentFragment =
+            parser.parseFromString(
+                html,
+                "text/html"
+            );
+
+
+        /* =====================================================
+           LOAD CSS FROM COMMON FILE
+        ===================================================== */
+
+        documentFragment
+            .querySelectorAll("style")
+            .forEach(styleElement => {
+
+                const style =
+                    document.createElement("style");
+
+                style.textContent =
+                    styleElement.textContent;
+
+                document.head.appendChild(style);
+
+            });
+
+
+        /* =====================================================
+           LOAD EXTERNAL STYLESHEETS FROM COMMON FILE
+        ===================================================== */
+
+        documentFragment
+            .querySelectorAll('link[rel="stylesheet"]')
+            .forEach(linkElement => {
+
+                const href =
+                    linkElement.getAttribute("href");
+
+
+                if(!href){
+                    return;
+                }
+
+
+                const isFontAwesome =
+                    href.includes(
+                        "font-awesome"
+                    ) ||
+                    href.includes(
+                        "cdnjs.cloudflare.com/ajax/libs/font-awesome"
+                    );
+
+
+                const isGoogleFont =
+                    href.includes(
+                        "fonts.googleapis.com"
+                    );
+
+
+                if(
+                    isFontAwesome ||
+                    isGoogleFont
+                ){
+                    return;
+                }
+
+
+                const alreadyLoaded =
+                    Array.from(
+                        document.querySelectorAll(
+                            'link[rel="stylesheet"]'
+                        )
+                    ).some(
+                        existingLink =>
+                            existingLink.href ===
+                            new URL(
+                                href,
+                                window.location.href
+                            ).href
+                    );
+
+
+                if(!alreadyLoaded){
+
+                    const link =
+                        document.createElement("link");
+
+                    link.rel =
+                        "stylesheet";
+
+                    link.href =
+                        new URL(
+                            href,
+                            window.location.href
+                        ).href;
+
+                    document.head.appendChild(link);
+
+                }
+
+            });
+
+
+        /* =====================================================
+           FIND COMMON HEADER
+        ===================================================== */
+
+        const commonHeader =
+            documentFragment.querySelector(
+                "header.site-header"
+            );
+
+
+        if(commonHeader){
+
+            headerContainer.innerHTML =
+                commonHeader.outerHTML;
+
+        }else{
+
+            const fallbackHeader =
+                documentFragment.querySelector(
+                    "header"
+                );
+
+
+            if(fallbackHeader){
+
+                headerContainer.innerHTML =
+                    fallbackHeader.outerHTML;
+
+            }
+
+        }
+
+
+        /* =====================================================
+           FIND COMMON FOOTER
+        ===================================================== */
+
+        const commonFooter =
+            documentFragment.querySelector(
+                "footer.pvasm-footer"
+            );
+
+
+        if(commonFooter){
+
+            footerContainer.innerHTML =
+                commonFooter.outerHTML;
+
+        }else{
+
+            const fallbackFooter =
+                documentFragment.querySelector(
+                    "footer"
+                );
+
+
+            if(fallbackFooter){
+
+                footerContainer.innerHTML =
+                    fallbackFooter.outerHTML;
+
+            }
+
+        }
+
+
+        /* =====================================================
+           EXECUTE SCRIPTS FROM COMMON FILE
+        ===================================================== */
+
+        const commonScripts =
+            Array.from(
+                documentFragment.querySelectorAll(
+                    "script"
+                )
+            );
+
+
+        for(
+            const oldScript of commonScripts
+        ){
+
+            const newScript =
+                document.createElement("script");
+
+
+            Array.from(
+                oldScript.attributes
+            ).forEach(attribute => {
+
+                newScript.setAttribute(
+                    attribute.name,
+                    attribute.value
+                );
+
+            });
+
+
+            if(oldScript.src){
+
+                newScript.src =
+                    new URL(
+                        oldScript.getAttribute("src"),
+                        window.location.href
+                    ).href;
+
+            }else{
+
+                newScript.textContent =
+                    oldScript.textContent;
+
+            }
+
+
+            document.body.appendChild(
+                newScript
+            );
+
+        }
+
+
+        document.dispatchEvent(
+            new CustomEvent(
+                "commonHeaderFooterLoaded"
+            )
+        );
+
+
+    }catch(error){
+
+        console.error(
+            "PVASMMITZone Header/Footer Loader Error:",
+            error
+        );
+
+        headerContainer.innerHTML = "";
+        footerContainer.innerHTML = "";
+
+    }
+
+})();
+
+
+/* =========================================================
+   FAQ
+========================================================= */
+
+const faqItems =
+document.querySelectorAll(
+    ".faq-item"
+);
+
+
+faqItems.forEach(
+    item => {
+
+        item.addEventListener(
+            "click",
+            ()=>{
+
+                const isActive =
+                    item.classList.contains(
+                        "active"
+                    );
+
+
+                faqItems.forEach(
+                    other => {
+
+                        other.classList.remove(
+                            "active"
+                        );
+
+                    }
+                );
+
+
+                if(!isActive){
+
+                    item.classList.add(
+                        "active"
+                    );
+
+                }
+
+            }
+        );
+
+    }
+);
+
+
+
+
+/* =========================================================
+   CURSOR GLOW + COLORFUL PARTICLES
+========================================================= */
+
+const cursorGlow =
+document.querySelector(
+    ".cursor-glow"
+);
+
+
+const particleCanvas =
+document.getElementById(
+    "cursorParticles"
+);
+
+
+const particleContext =
+    particleCanvas &&
+    particleCanvas.getContext("2d");
+
+
+const reducedMotion =
+    window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+
+
+/* =========================================================
+   CURSOR GLOW MOVEMENT
+========================================================= */
+
+if(
+    cursorGlow &&
+    !reducedMotion
+){
+
+    document.addEventListener(
+        "pointermove",
+        event=>{
+
+            cursorGlow.style.left =
+                `${event.clientX}px`;
+
+            cursorGlow.style.top =
+                `${event.clientY}px`;
+
+        },
+        {
+            passive:true
+        }
+    );
+
+}
+
+
+
+/* =========================================================
+   COLORFUL CURSOR PARTICLES
+========================================================= */
+
+if(
+    particleContext &&
+    !reducedMotion
+){
+
+    const particles = [];
+
+
+    const colors = [
+
+        "#a78bfa",
+
+        "#ec4899",
+
+        "#22d3ee",
+
+        "#fbbf24",
+
+        "#34d399"
+
+    ];
+
+
+    const cursor = {
+
+        x:-1000,
+
+        y:-1000
+
+    };
+
+
+    function resizeParticleCanvas(){
+
+        const scale =
+            window.devicePixelRatio || 1;
+
+
+        particleCanvas.width =
+            window.innerWidth *
+            scale;
+
+
+        particleCanvas.height =
+            window.innerHeight *
+            scale;
+
+
+        particleCanvas.style.width =
+            `${window.innerWidth}px`;
+
+
+        particleCanvas.style.height =
+            `${window.innerHeight}px`;
+
+
+        particleContext.setTransform(
+
+            scale,
+
+            0,
+
+            0,
+
+            scale,
+
+            0,
+
+            0
+
+        );
+
+    }
+
+
+
+    for(
+        let i = 0;
+        i < 32;
+        i++
+    ){
+
+        const homeX =
+            Math.random() *
+            window.innerWidth;
+
+
+        const homeY =
+            Math.random() *
+            window.innerHeight;
+
+
+        particles.push({
+
+            x:homeX,
+
+            y:homeY,
+
+            homeX,
+
+            homeY,
+
+            size:
+                1.5 +
+                Math.random() *
+                2.8,
+
+            color:
+                colors[
+                    i %
+                    colors.length
+                ],
+
+            alpha:
+                .35 +
+                Math.random() *
+                .5
+
+        });
+
+    }
+
+
+
+    window.addEventListener(
+        "resize",
+        resizeParticleCanvas
+    );
+
+
+
+    document.addEventListener(
+        "pointermove",
+        event=>{
+
+            cursor.x =
+                event.clientX;
+
+            cursor.y =
+                event.clientY;
+
+        },
+        {
+            passive:true
+        }
+    );
+
+
+
+    function animateParticles(){
+
+        particleContext.clearRect(
+
+            0,
+
+            0,
+
+            window.innerWidth,
+
+            window.innerHeight
+
+        );
+
+
+        particles.forEach(
+            particle=>{
+
+
+                const dx =
+                    cursor.x -
+                    particle.homeX;
+
+
+                const dy =
+                    cursor.y -
+                    particle.homeY;
+
+
+                const distance =
+                    Math.hypot(
+                        dx,
+                        dy
+                    );
+
+
+                const influenceRadius =
+                    190;
+
+
+                const influence =
+                    distance <
+                    influenceRadius
+
+                    ?
+
+                    Math.pow(
+
+                        1 -
+                        distance /
+                        influenceRadius,
+
+                        2
+
+                    )
+
+                    :
+
+                    0;
+
+
+                const targetX =
+                    particle.homeX +
+                    dx *
+                    influence;
+
+
+                const targetY =
+                    particle.homeY +
+                    dy *
+                    influence;
+
+
+                particle.x +=
+                    (
+                        targetX -
+                        particle.x
+                    ) *
+                    .12;
+
+
+                particle.y +=
+                    (
+                        targetY -
+                        particle.y
+                    ) *
+                    .12;
+
+
+                particleContext.globalAlpha =
+                    particle.alpha;
+
+
+                particleContext.fillStyle =
+                    particle.color;
+
+
+                particleContext.beginPath();
+
+
+                particleContext.arc(
+
+                    particle.x,
+
+                    particle.y,
+
+                    particle.size,
+
+                    0,
+
+                    Math.PI * 2
+
+                );
+
+
+                particleContext.fill();
+
+            }
+        );
+
+
+        particleContext.globalAlpha = 1;
+
+
+        requestAnimationFrame(
+            animateParticles
+        );
+
+    }
+
+
+
+    resizeParticleCanvas();
+
+    animateParticles();
+
+}
+
+</script>
+
+<script>
+/* =========================================================
+   PRODUCT RATINGS — APPROVED SUPABASE REVIEWS
+========================================================= */
+(function(){
+    "use strict";
+
+    const SUPABASE_URL = "https://xesxszewijgptialporu.supabase.co";
+    const SUPABASE_ANON_KEY = "sb_publishable_62wWEgo__Xms3meUHyAvDw_xDxMeW0B";
+
+    async function renderRatings(){
+        const containers = Array.from(
+            document.querySelectorAll("[data-product-rating]")
+        );
+        const productSlugs = [...new Set(
+            containers.map(container => container.dataset.productRating)
+        )];
+
+        if(!window.supabase || !window.supabase.createClient){
+            console.error("Supabase library failed to load.");
+            return;
+        }
+
+        const client = window.supabase.createClient(
+            SUPABASE_URL,
+            SUPABASE_ANON_KEY
+        );
+        const { data, error } = await client
+            .from("reviews")
+            .select("product_slug,rating,status")
+            .in("product_slug", productSlugs)
+            .in("status", ["approved", "pending"])
+            .order("created_at", { ascending: false });
+
+        if(error){
+            console.error("Failed to load product ratings:", error);
+            return;
+        }
+
+        const ratingsByProduct = new Map();
+        (data || []).forEach(review => {
+            const rating = Math.max(0, Math.min(5, Number(review.rating) || 0));
+            if(!rating) return;
+
+            const ratings = ratingsByProduct.get(review.product_slug) || [];
+            ratings.push(rating);
+            ratingsByProduct.set(review.product_slug, ratings);
+        });
+
+        containers.forEach(container => {
+            const ratings = ratingsByProduct.get(container.dataset.productRating) || [];
+            if(!ratings.length){
+                container.innerHTML = "";
+                return;
+            }
+
+            const average = ratings.reduce((total, rating) => total + rating, 0) / ratings.length;
+            let starsHTML = "";
+
+            for(let index = 0; index < 5; index++){
+                const fill = Math.max(0, Math.min(100, (average - index) * 100));
+                starsHTML += `<span class="reviews-product-rating-star" style="--star-fill:${fill}%" aria-hidden="true">★</span>`;
+            }
+
+            container.innerHTML = `
+                <span class="reviews-product-rating-stars">${starsHTML}</span>
+                <span class="reviews-product-rating-value">${average.toFixed(1)}</span>
+                <span class="reviews-product-rating-count">(${ratings.length})</span>
+            `;
+        });
+    }
+
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", renderRatings);
+    } else {
+        renderRatings();
+    }
+})();
+</script>
+
+</body>
+</html>

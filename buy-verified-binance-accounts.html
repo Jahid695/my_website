@@ -1,0 +1,2668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Buy Verified Binance Accounts — PVASMMITZone</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<!-- Supabase CDN Script -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<style>
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:"Plus Jakarta Sans",sans-serif;
+    background:
+        radial-gradient(circle at 15% 10%,rgba(139,92,246,.08),transparent 28%),
+        radial-gradient(circle at 85% 25%,rgba(34,211,238,.05),transparent 25%),
+        #070b15;
+    color:#f7f8ff;
+    overflow-x:hidden;
+}
+
+body::after{
+    content:"";
+    position:fixed;
+    inset:-20%;
+    z-index:-2;
+    pointer-events:none;
+    background:
+        radial-gradient(circle at 20% 25%,rgba(76,0,255,.22),transparent 25%),
+        radial-gradient(circle at 78% 30%,rgba(34,211,238,.16),transparent 24%),
+        radial-gradient(circle at 55% 80%,rgba(236,72,153,.14),transparent 26%);
+    filter:blur(35px) saturate(125%);
+    animation:backgroundDrift 16s ease-in-out infinite alternate;
+}
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:-1;
+    opacity:.35;
+    background-image:
+        linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);
+    background-size:50px 50px;
+}
+
+@keyframes backgroundDrift{
+    0%{
+        transform:translate3d(-2%,-1%,0) scale(1);
+    }
+
+    100%{
+        transform:translate3d(2%,1%,0) scale(1.08);
+    }
+}
+
+@media(prefers-reduced-motion:reduce){
+
+    body::after{
+        animation:none;
+    }
+
+    .cursor-glow{
+        display:none;
+    }
+}
+
+a{
+    color:inherit;
+}
+
+button,
+input,
+select,
+textarea{
+    font-family:inherit;
+}
+
+.container{
+    width:min(1200px,92%);
+    margin:auto;
+}
+
+
+/* =========================================================
+   CURSOR BACKGROUND
+========================================================= */
+
+.cursor-glow{
+    position:fixed;
+    top:0;
+    left:0;
+    width:280px;
+    height:280px;
+    z-index:-1;
+    pointer-events:none;
+    border-radius:50%;
+    background:
+        radial-gradient(
+            circle,
+            rgba(139,92,246,.18),
+            rgba(34,211,238,.08) 35%,
+            transparent 70%
+        );
+    filter:blur(8px);
+    transform:translate(-50%,-50%);
+    transition:transform .18s ease-out;
+}
+
+.cursor-particles{
+    position:fixed;
+    inset:0;
+    width:100%;
+    height:100%;
+    z-index:-1;
+    pointer-events:none;
+}
+
+
+/* =========================================================
+   PRODUCT DETAIL PAGE
+========================================================= */
+
+.pd-page{
+    width:min(1180px,92%);
+    margin:auto;
+    padding:42px 0 70px;
+}
+
+.pd-product-section{
+    display:grid;
+    grid-template-columns:48% 52%;
+    gap:45px;
+    align-items:start;
+}
+
+
+/* PRODUCT IMAGE */
+
+.pd-product-image-box{
+    width:420px;
+    height:420px;
+    flex:0 0 420px;
+    min-width:420px;
+    min-height:420px;
+    max-width:none;
+    aspect-ratio:1 / 1;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:18px;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(24,37,54,.96),
+            rgba(11,17,32,.96)
+        );
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    justify-self:center;
+    overflow:hidden;
+    box-shadow:
+        0 20px 50px rgba(0,0,0,.22);
+}
+
+.pd-product-image-box img{
+    width:420px;
+    height:420px;
+    min-width:420px;
+    min-height:420px;
+    max-width:none;
+    aspect-ratio:1 / 1;
+    object-fit:contain;
+    padding:18px;
+    transition:.35s ease;
+}
+
+.pd-product-image-box:hover img{
+    transform:scale(1.025);
+}
+
+
+/* PRODUCT DETAILS */
+
+.pd-product-category{
+    font-size:10px;
+    color:#a78bfa;
+    margin-bottom:10px;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:1px;
+}
+
+.pd-product-category a:hover{
+    color:#22d3ee;
+}
+
+.pd-product-title{
+    font-size:30px;
+    line-height:1.3;
+    font-weight:800;
+    color:#fff;
+    margin-bottom:13px;
+}
+
+.pd-rating-row{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    margin-bottom:18px;
+}
+
+.pd-stars{
+    color:#f4a000;
+    font-size:14px;
+    letter-spacing:1px;
+}
+
+.pd-review-link{
+    color:#919bab;
+    font-size:11px;
+    text-decoration:none;
+    cursor:pointer;
+}
+
+.pd-review-link:hover{
+    color:#a78bfa;
+}
+
+.pd-product-price{
+    font-size:24px;
+    font-weight:800;
+    color:#fff;
+    margin-bottom:16px;
+}
+
+.pd-short-description{
+    font-size:12px;
+    color:#9ca6b7;
+    line-height:1.8;
+    margin-bottom:18px;
+}
+
+.pd-features{
+    list-style:none;
+    margin-bottom:22px;
+}
+
+.pd-features li{
+    font-size:11px;
+    color:#b8c0ce;
+    margin-bottom:9px;
+    position:relative;
+    padding-left:20px;
+}
+
+.pd-features li::before{
+    content:"✓";
+    position:absolute;
+    left:0;
+    top:0;
+    color:#22d3ee;
+    font-weight:800;
+}
+
+
+/* =========================================================
+   PRODUCT OPTION
+========================================================= */
+
+.pd-option-label{
+    display:block;
+    font-size:11px;
+    font-weight:700;
+    color:#d7dbea;
+    margin-bottom:7px;
+}
+
+.pd-product-select{
+    width:100%;
+    height:42px;
+    border:1px solid rgba(255,255,255,.10);
+    border-radius:9px;
+    padding:0 12px;
+    font-family:inherit;
+    font-size:11px;
+    color:#ddd;
+    background:#101827;
+    outline:none;
+    margin-bottom:15px;
+}
+
+.pd-product-select:focus{
+    border-color:#8b5cf6;
+}
+
+.pd-selected-price{
+    min-height:18px;
+    margin:-7px 0 15px;
+    color:#22d3ee;
+    font-size:11px;
+    font-weight:700;
+}
+
+.pd-cart-row{
+    display:flex;
+    gap:10px;
+    margin-bottom:20px;
+}
+
+.pd-quantity{
+    width:80px;
+    height:43px;
+    border:1px solid rgba(255,255,255,.10);
+    border-radius:9px;
+    background:#101827;
+    color:#fff;
+    text-align:center;
+    font-size:12px;
+    outline:none;
+}
+
+.pd-add-cart{
+    flex:1;
+    height:43px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border:none;
+    border-radius:9px;
+    background:
+        linear-gradient(
+            135deg,
+            #8b5cf6,
+            #ec4899
+        );
+    color:#fff;
+    font-family:inherit;
+    font-size:11px;
+    font-weight:800;
+    text-align:center;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.pd-add-cart:hover{
+    transform:translateY(-2px);
+    box-shadow:0 10px 30px rgba(139,92,246,.25);
+}
+
+.pd-cart-summary{
+    display:none;
+    align-items:center;
+    gap:10px;
+    margin:-8px 0 20px;
+    padding:12px 14px;
+    border:1px solid rgba(34,211,238,.18);
+    border-radius:9px;
+    background:rgba(34,211,238,.05);
+    font-size:12px;
+}
+
+.pd-cart-summary.visible{
+    display:flex;
+}
+
+.pd-cart-summary del{
+    color:#788396;
+    font-size:11px;
+}
+
+.pd-cart-summary strong{
+    color:#22d3ee;
+    font-size:16px;
+}
+
+.pd-product-meta{
+    border-top:1px solid rgba(255,255,255,.08);
+    padding-top:15px;
+}
+
+.pd-product-meta p{
+    font-size:10px;
+    color:#788396;
+    margin-bottom:7px;
+}
+
+.pd-product-meta strong{
+    color:#c9cfdb;
+}
+
+
+/* =========================================================
+   PRODUCT TABS
+========================================================= */
+
+.pd-tabs-wrapper{
+    margin-top:60px;
+    border-top:1px solid rgba(255,255,255,.08);
+}
+
+.pd-tabs{
+    display:flex;
+    gap:30px;
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.pd-tab-btn{
+    border:none;
+    background:none;
+    padding:17px 0;
+    font-family:inherit;
+    font-size:11px;
+    font-weight:700;
+    color:#788396;
+    cursor:pointer;
+    position:relative;
+}
+
+.pd-tab-btn.active{
+    color:#a78bfa;
+}
+
+.pd-tab-btn.active::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-1px;
+    width:100%;
+    height:2px;
+    background:
+        linear-gradient(
+            90deg,
+            #8b5cf6,
+            #ec4899
+        );
+}
+
+.pd-tab-content{
+    display:none;
+    padding:30px 0;
+}
+
+.pd-tab-content.active{
+    display:block;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.pd-description-content{
+    max-width:850px;
+}
+
+.pd-description-content h2{
+    font-size:20px;
+    margin-bottom:13px;
+    color:#fff;
+}
+
+.pd-description-content h3{
+    font-size:14px;
+    margin:23px 0 10px;
+    color:#f7f8ff;
+}
+
+.pd-description-content p{
+    font-size:11px;
+    color:#919bab;
+    line-height:1.9;
+    margin-bottom:12px;
+}
+
+.pd-description-content ul{
+    padding-left:18px;
+}
+
+.pd-description-content li{
+    font-size:11px;
+    color:#919bab;
+    margin-bottom:8px;
+}
+
+
+/* =========================================================
+   ADDITIONAL INFORMATION
+========================================================= */
+
+.pd-additional-info{
+    max-width:700px;
+    margin-bottom:40px;
+}
+
+.pd-additional-info h3{
+    font-size:17px;
+    color:#fff;
+    margin-bottom:15px;
+}
+
+.pd-info-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:11px 13px;
+    border-bottom:1px solid rgba(255,255,255,.07);
+    font-size:10px;
+}
+
+.pd-info-row span{
+    color:#788396;
+}
+
+.pd-info-row strong{
+    color:#d7dbea;
+    font-weight:600;
+}
+
+
+/* =========================================================
+   MORE CRYPTO ACCOUNT PRODUCTS
+========================================================= */
+
+.additional-options{
+    margin-top:48px;
+    padding-top:35px;
+    border-top:1px solid rgba(255,255,255,.07);
+}
+
+.additional-heading{
+    display:flex;
+    align-items:center;
+    justify-content:flex-start;
+    gap:12px;
+    margin-bottom:18px;
+}
+
+.additional-heading-line{
+    display:none;
+}
+
+.additional-heading h2{
+    font-size:18px;
+    font-weight:800;
+    color:#fff;
+    text-align:left;
+    margin:0;
+}
+
+
+/* CATEGORY HEADER */
+
+.additional-category-head{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:18px;
+}
+
+.additional-category-icon{
+    width:34px;
+    height:34px;
+    flex:none;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:9px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(139,92,246,.18),
+            rgba(236,72,153,.10)
+        );
+
+    border:1px solid rgba(139,92,246,.22);
+
+    color:#a78bfa;
+    font-size:14px;
+}
+
+.additional-category-head h3{
+    font-size:15px;
+    font-weight:800;
+    color:#fff;
+    margin:0 0 2px;
+}
+
+.additional-category-head p{
+    font-size:8px;
+    color:#687285;
+    margin:0;
+}
+
+
+/* =========================================================
+   PRODUCT SLIDER
+========================================================= */
+
+.additional-slider{
+    position:relative;
+    width:100%;
+    display:block;
+}
+
+.additional-viewport{
+    width:100%;
+    overflow:hidden;
+    cursor:grab;
+    user-select:none;
+    touch-action:pan-y;
+}
+
+.additional-viewport:active{
+    cursor:grabbing;
+}
+
+.additional-track{
+    display:flex;
+    gap:14px;
+
+    transition:
+        transform .45s cubic-bezier(.22,.61,.36,1);
+
+    will-change:transform;
+}
+
+
+/* =========================================================
+   PRODUCT CARD
+========================================================= */
+
+.additional-card{
+    flex:0 0 calc((100% - 42px) / 4);
+    min-width:0;
+
+    padding:11px;
+
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:13px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(24,37,54,.96),
+            rgba(11,17,32,.96)
+        );
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.12);
+
+    transition:
+        transform .3s ease,
+        border-color .3s ease,
+        box-shadow .3s ease;
+}
+
+.additional-card:hover{
+    transform:translateY(-4px);
+
+    border-color:
+        rgba(139,92,246,.40);
+
+    box-shadow:
+        0 15px 35px rgba(139,92,246,.13);
+}
+
+
+/* =========================================================
+   PRODUCT IMAGE
+========================================================= */
+
+.additional-image{
+    width:100%;
+    height:170px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:#101827;
+
+    border:1px solid rgba(255,255,255,.07);
+    border-radius:9px;
+
+    overflow:hidden;
+
+    margin-bottom:10px;
+}
+
+.additional-image img{
+    width:100%;
+    height:100%;
+
+    object-fit:contain;
+
+    display:block;
+
+    transition:
+        transform .35s ease;
+}
+
+.additional-card:hover .additional-image img{
+    transform:scale(1.025);
+}
+
+
+/* =========================================================
+   PRODUCT CONTENT
+========================================================= */
+
+.additional-bottom{
+    display:block;
+}
+
+.additional-bottom h4{
+    color:#fff;
+
+    font-size:10px;
+    font-weight:800;
+
+    line-height:1.45;
+
+    min-height:29px;
+
+    margin:0 0 5px;
+}
+
+.additional-description{
+    color:#788396;
+
+    font-size:7.5px;
+
+    line-height:1.5;
+
+    min-height:22px;
+
+    margin-bottom:8px;
+}
+
+
+/* =========================================================
+   PRICE + BUTTON
+========================================================= */
+
+.additional-product-footer{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    gap:8px;
+}
+
+.additional-price{
+    color:#fff;
+
+    font-size:9px;
+    font-weight:800;
+
+    margin:0;
+
+    white-space:nowrap;
+}
+
+.additional-btn{
+    flex:none;
+
+    min-width:70px;
+    height:27px;
+
+    padding:0 8px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    gap:4px;
+
+    text-decoration:none;
+
+    border:none;
+    border-radius:7px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #8b5cf6,
+            #ec4899
+        );
+
+    color:#fff;
+
+    font-size:7px;
+    font-weight:800;
+
+    transition:.25s ease;
+}
+
+.additional-btn i{
+    font-size:6px;
+}
+
+.additional-btn:hover{
+    transform:translateY(-1px);
+
+    box-shadow:
+        0 7px 18px rgba(139,92,246,.25);
+}
+
+
+/* =========================================================
+   CAROUSEL CONTROLS
+========================================================= */
+
+.additional-controls{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    gap:7px;
+
+    margin-top:17px;
+}
+
+.additional-arrow{
+    width:31px;
+    height:31px;
+
+    flex:none;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border:1px solid rgba(255,255,255,.09);
+    border-radius:8px;
+
+    background:rgba(255,255,255,.04);
+
+    color:#c7cbe0;
+
+    cursor:pointer;
+
+    transition:.25s ease;
+}
+
+.additional-arrow:hover{
+    color:#fff;
+
+    border-color:#8b5cf6;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(139,92,246,.22),
+            rgba(236,72,153,.12)
+        );
+
+    transform:translateY(-1px);
+}
+
+.additional-arrow:disabled{
+    opacity:.35;
+    cursor:not-allowed;
+    transform:none;
+}
+
+
+/* =========================================================
+   DOTS
+========================================================= */
+
+.additional-dots{
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    gap:5px;
+}
+
+.additional-dot{
+    width:6px;
+    height:6px;
+
+    padding:0;
+
+    border:none;
+    border-radius:50%;
+
+    background:#3d4555;
+
+    cursor:pointer;
+
+    transition:.25s ease;
+}
+
+.additional-dot.active{
+    width:16px;
+
+    border-radius:10px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #8b5cf6,
+            #ec4899
+        );
+}
+
+
+/* =========================================================
+   RELATED PRODUCTS
+========================================================= */
+
+.pd-related-products{
+    display:none;
+    margin-top:45px;
+}
+
+.pd-related-products h3{
+    font-size:17px;
+    color:#fff;
+    margin-bottom:5px;
+}
+
+.pd-related-subtitle{
+    font-size:10px;
+    color:#788396;
+    margin-bottom:18px;
+}
+
+.pd-related-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:16px;
+}
+
+.pd-related-card{
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:12px;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(24,37,54,.96),
+            rgba(11,17,32,.96)
+        );
+    padding:10px;
+    transition:.25s;
+}
+
+.pd-related-card:hover{
+    border-color:rgba(139,92,246,.45);
+    transform:translateY(-3px);
+    box-shadow:0 12px 30px rgba(139,92,246,.10);
+}
+
+.pd-related-image{
+    width:100%;
+    height:145px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#101827;
+    border-radius:8px;
+    margin-bottom:10px;
+    overflow:hidden;
+}
+
+.pd-related-image img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+}
+
+.pd-related-category{
+    font-size:8px;
+    color:#8b5cf6;
+    margin-bottom:4px;
+}
+
+.pd-related-card h4{
+    font-size:11px;
+    line-height:1.4;
+    color:#fff;
+    min-height:31px;
+    margin-bottom:5px;
+}
+
+.pd-related-stars{
+    font-size:10px;
+    color:#f4a000;
+    letter-spacing:1px;
+    margin-bottom:4px;
+}
+
+.pd-related-price{
+    font-size:10px;
+    font-weight:700;
+    color:#fff;
+    margin-bottom:9px;
+}
+
+.pd-related-btn{
+    width:100%;
+    height:31px;
+    border:1px solid #8b5cf6;
+    border-radius:7px;
+    background:transparent;
+    color:#a78bfa;
+    font-size:9px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.pd-related-btn:hover{
+    background:
+        linear-gradient(
+            135deg,
+            #8b5cf6,
+            #ec4899
+        );
+    color:#fff;
+    border-color:transparent;
+}
+
+
+/* =========================================================
+   REVIEWS
+========================================================= */
+
+.pd-review-summary{
+    margin-bottom:25px;
+}
+
+.pd-review-summary h3{
+    font-size:17px;
+    margin-bottom:8px;
+    color:#fff;
+}
+
+.pd-review-summary p{
+    font-size:10px;
+    color:#788396;
+}
+
+.pd-review-item{
+    border-bottom:1px solid rgba(255,255,255,.08);
+    padding:17px 0;
+}
+
+.pd-review-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:7px;
+}
+
+.pd-reviewer{
+    font-size:11px;
+    font-weight:700;
+    color:#fff;
+}
+
+.pd-review-date{
+    font-size:9px;
+    color:#687285;
+}
+
+.pd-review-stars{
+    color:#f4a000;
+    font-size:11px;
+    margin-bottom:6px;
+}
+
+.pd-review-text{
+    font-size:10px;
+    color:#919bab;
+    line-height:1.7;
+}
+
+.pd-review-form{
+    margin-top:30px;
+    max-width:650px;
+    padding:20px;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:12px;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(24,37,54,.92),
+            rgba(11,17,32,.96)
+        );
+}
+
+.pd-review-form h3{
+    font-size:15px;
+    margin-bottom:18px;
+    color:#fff;
+}
+
+.pd-form-group{
+    margin-bottom:15px;
+}
+
+.pd-form-group label{
+    display:block;
+    font-size:10px;
+    font-weight:600;
+    color:#d7dbea;
+    margin-bottom:6px;
+}
+
+.pd-form-group input,
+.pd-form-group textarea,
+.pd-form-group select{
+    width:100%;
+    border:1px solid rgba(255,255,255,.10);
+    border-radius:7px;
+    background:#101827;
+    color:#fff;
+    padding:10px;
+    font-family:inherit;
+    font-size:10px;
+    outline:none;
+}
+
+.pd-form-group textarea{
+    min-height:100px;
+    resize:vertical;
+}
+
+.pd-form-group input:focus,
+.pd-form-group textarea:focus,
+.pd-form-group select:focus{
+    border-color:#8b5cf6;
+}
+
+.pd-submit-review{
+    height:38px;
+    padding:0 20px;
+    border:none;
+    border-radius:8px;
+    background:
+        linear-gradient(
+            135deg,
+            #8b5cf6,
+            #ec4899
+        );
+    color:#fff;
+    font-family:inherit;
+    font-size:10px;
+    font-weight:700;
+    cursor:pointer;
+}
+
+.pd-submit-review:hover{
+    box-shadow:0 8px 25px rgba(139,92,246,.20);
+}
+
+.pd-no-reviews{
+    font-size:11px;
+    color:#788396;
+    padding:15px 0;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:1050px){
+
+    .pd-product-section{
+        grid-template-columns:1fr 1fr;
+        gap:30px;
+    }
+
+    .pd-related-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .additional-card{
+        flex-basis:calc((100% - 28px) / 3);
+    }
+
+    .additional-image{
+        height:155px;
+    }
+}
+
+
+@media(max-width:900px){
+
+    .additional-card{
+        flex-basis:calc((100% - 28px) / 3);
+    }
+
+}
+
+
+@media(max-width:800px){
+
+    .pd-product-section{
+        grid-template-columns:1fr;
+        gap:30px;
+    }
+
+    .pd-product-image-box{
+        width:480px;
+        height:480px;
+        min-height:0;
+    }
+
+    .pd-product-image-box img{
+        height:100%;
+    }
+}
+
+
+@media(max-width:700px){
+
+    .pd-page{
+        width:92%;
+        padding:28px 0 50px;
+    }
+
+    .pd-product-title{
+        font-size:23px;
+    }
+
+    .pd-product-price{
+        font-size:21px;
+    }
+
+    .pd-product-image-box{
+        min-height:0;
+        width:480px;
+        height:480px;
+        max-width:100%;
+    }
+
+    .pd-product-image-box img{
+        height:100%;
+        max-width:100%;
+    }
+
+    .pd-tabs{
+        gap:18px;
+        overflow-x:auto;
+    }
+
+    .pd-tab-btn{
+        white-space:nowrap;
+    }
+
+    .pd-related-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .pd-related-image{
+        height:145px;
+    }
+
+    .pd-cart-row{
+        flex-direction:column;
+    }
+
+    .pd-quantity{
+        width:100%;
+    }
+
+
+    /* MOBILE PRODUCT CARDS */
+
+    .additional-options{
+        margin-top:38px;
+        padding-top:28px;
+    }
+
+    .additional-heading h2{
+        font-size:16px;
+    }
+
+    .additional-category-head{
+        margin-bottom:14px;
+    }
+
+    .additional-category-head h3{
+        font-size:13px;
+    }
+
+    .additional-category-head p{
+        font-size:7px;
+    }
+
+    .additional-card{
+        flex-basis:calc((100% - 12px) / 2);
+        padding:8px;
+        border-radius:10px;
+    }
+
+    .additional-image{
+        height:125px;
+        border-radius:8px;
+        margin-bottom:8px;
+    }
+
+    .additional-bottom h4{
+        font-size:8px;
+        min-height:25px;
+    }
+
+    .additional-description{
+        font-size:6.5px;
+        min-height:20px;
+    }
+
+    .additional-price{
+        font-size:7.5px;
+    }
+
+    .additional-btn{
+        min-width:58px;
+        height:25px;
+        font-size:6px;
+    }
+
+    .additional-controls{
+        margin-top:14px;
+    }
+
+    .additional-arrow{
+        width:29px;
+        height:29px;
+    }
+}
+
+
+@media(max-width:480px){
+
+    .pd-related-grid{
+        grid-template-columns:1fr;
+    }
+
+    .pd-related-image{
+        height:190px;
+    }
+
+    .pd-tabs-wrapper{
+        margin-top:40px;
+    }
+
+    .pd-tab-content{
+        padding:24px 0;
+    }
+
+    .additional-card{
+        flex-basis:100%;
+    }
+
+    .additional-image{
+        height:180px;
+    }
+
+    .additional-bottom h4{
+        font-size:10px;
+    }
+
+    .additional-description{
+        font-size:7.5px;
+    }
+
+    .additional-price{
+        font-size:9px;
+    }
+
+    .additional-btn{
+        min-width:72px;
+        height:28px;
+        font-size:7px;
+    }
+}
+
+
+@media(hover:none){
+
+    .pd-product-image-box:hover img{
+        transform:none;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- =========================================================
+     HEADER + FOOTER LOADER
+     header-footer.html must be in the same folder as this page.
+========================================================= -->
+
+<div id="site-header"></div>
+
+
+<!-- =========================================================
+     BACKGROUND
+========================================================= -->
+
+<div class="cursor-glow" aria-hidden="true"></div>
+
+<canvas
+    class="cursor-particles"
+    id="cursorParticles"
+    aria-hidden="true">
+</canvas>
+
+
+<!-- =========================================================
+     MAIN
+========================================================= -->
+
+<main>
+
+<div class="pd-page">
+
+
+<!-- =========================================================
+     PRODUCT SECTION
+========================================================= -->
+
+<section class="pd-product-section">
+
+
+<div class="pd-product-image-box">
+
+<img
+    src="buy-verified-binance-accounts.jpg"
+    alt="Buy Verified Binance Accounts">
+
+</div>
+
+
+<div class="pd-product-details">
+
+<div class="pd-product-category">
+<a href="crypto-accounts.html"
+   style="text-decoration:none;"
+   onmouseover="this.style.color='#007bff'"
+   onmouseout="this.style.color=''">
+   Crypto Accounts
+</a>
+</div>
+
+<h1 class="pd-product-title">
+Buy Verified Binance Accounts
+</h1>
+
+
+<div class="pd-rating-row">
+
+<div class="pd-stars">
+★★★★★
+</div>
+
+<a
+    class="pd-review-link"
+    onclick="showReviews()">
+
+(<span id="topReviewCount">0</span> customer reviews)
+
+</a>
+
+</div>
+
+
+<div class="pd-product-price">
+$25.00 – $300.00
+</div>
+
+<h2>Buy Verified Binance Accounts</h2>
+
+<p class="pd-short-description">
+
+Quality-focused digital account products with clear
+product information and customer support.
+
+</p>
+
+<h5>Our accounts are 100% legit and verified.</h5>
+
+<ul class="pd-features">
+
+<li>Quality checked product listing</li>
+<li>Clear product information</li>
+<li>Fast digital delivery</li>
+<li>Customer support available</li>
+
+</ul>
+
+
+<!-- =========================================================
+     CONTACT BOX
+     Loaded from contact-box.html
+========================================================= -->
+
+<div id="contact-box"></div>
+
+
+<label class="pd-option-label">
+Select Product Option
+</label>
+
+
+<select
+    class="pd-product-select"
+    onchange="updateSelectedPrice(this)">
+
+<option value="">
+Choose an option
+</option>
+
+<option value="new business" data-price="180" data-sale-price="160">
+01 New personal Verified Binance Account
+</option>
+
+<option value="new personal" data-price="250" data-sale-price="210">
+01 Old personal Verified Binance Accounts With Documents
+</option>
+
+<option value="old business" data-price="400" data-sale-price="370">
+01 Old Business Verified Binance Accounts With Documents
+</option>
+
+</select>
+
+<div
+    class="pd-selected-price"
+    id="selectedPrice"
+    aria-live="polite">
+</div>
+
+
+<div class="pd-cart-row">
+
+<input
+    type="number"
+    class="pd-quantity"
+    value="1"
+    min="1">
+
+<a
+    class="pd-add-cart"
+    href="contact-us.html"
+    onclick="addToCart();"
+    aria-label="Add to cart and proceed to order"
+    style="font-size:20px;text-decoration:none;">
+
+Add to Cart
+
+</a>
+
+</div>
+
+<div
+    class="pd-cart-summary"
+    id="cartSummary"
+    aria-live="polite">
+</div>
+
+
+<div class="pd-product-meta">
+
+<p>
+<strong>Category:</strong>
+<a
+    href="crypto-accounts.html"
+    style="text-decoration:none;"
+    onmouseover="this.style.color='#ff6600'"
+    onmouseout="this.style.color=''">
+    Crypto Accounts
+</a>
+</p>
+
+<p>
+<strong>Tags:</strong>
+
+<a href="buy-verified-binance-accounts.html"
+   style="text-decoration:none;"
+   onmouseover="this.style.color='#ff6600'"
+   onmouseout="this.style.color=''">
+   Buy Verified Binance Accounts
+</a>,
+
+<a href="buy-verified-binance-accounts.html"
+   style="text-decoration:none;"
+   onmouseover="this.style.color='#ff6600'"
+   onmouseout="this.style.color=''">
+   Buy Verified Binance Accounts
+</a>,
+
+<a href="buy-verified-binance-accounts.html"
+   style="text-decoration:none;"
+   onmouseover="this.style.color='#ff6600'"
+   onmouseout="this.style.color=''">
+   Buy Verified Binance Accounts
+</a>,
+
+<a href="buy-verified-binance-accounts.html"
+   style="text-decoration:none;"
+   onmouseover="this.style.color='#ff6600'"
+   onmouseout="this.style.color=''">
+   Buy Verified Binance Accounts Canada
+</a>,
+
+<a href="buy-verified-binance-accounts.html"
+   style="text-decoration:none;"
+   onmouseover="this.style.color='#ff6600'"
+   onmouseout="this.style.color=''">
+   Buy Verified Binance Accounts UK
+</a>,
+
+<a href="buy-verified-binance-accounts.html"
+   style="text-decoration:none;"
+   onmouseover="this.style.color='#ff6600'"
+   onmouseout="this.style.color=''">
+   Buy New Verified Binance Accounts
+</a>,
+
+<a href="buy-verified-binance-accounts.html"
+   style="text-decoration:none;"
+   onmouseover="this.style.color='#ff6600'"
+   onmouseout="this.style.color=''">
+   Buy Old Verified Binance Accounts
+</a>,
+
+<a href="buy-verified-binance-accounts.html"
+   style="text-decoration:none;"
+   onmouseover="this.style.color='#ff6600'"
+   onmouseout="this.style.color=''">
+   Buy Old Personal Verified Binance Accounts
+</a>,
+
+<a href="buy-verified-binance-accounts.html"
+   style="text-decoration:none;"
+   onmouseover="this.style.color='#ff6600'"
+   onmouseout="this.style.color=''">
+   Buy New Verified Binance Accounts
+</a>,
+
+<a href="buy-verified-binance-accounts.html"
+   style="text-decoration:none;"
+   onmouseover="this.style.color='#ff6600'"
+   onmouseout="this.style.color=''">
+   Buy Old Verified Binance Accounts
+</a>,
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     TABS
+========================================================= -->
+
+<div class="pd-tabs-wrapper">
+
+
+<div class="pd-tabs">
+
+<button
+    class="pd-tab-btn active"
+    onclick="openProductTab(event,'pd-description')">
+
+Description
+
+</button>
+
+
+<button
+    class="pd-tab-btn"
+    onclick="openProductTab(event,'pd-additional')">
+
+Additional Information
+
+</button>
+
+
+<button
+    class="pd-tab-btn"
+    onclick="openProductTab(event,'pd-reviews')"
+    id="reviewTabButton">
+
+Reviews (<span id="reviewCount">0</span>)
+
+</button>
+
+</div>
+
+
+<!-- =========================================================
+     DESCRIPTION
+========================================================= -->
+
+<div
+    id="pd-description"
+    class="pd-tab-content active">
+
+<div class="pd-description-content">
+
+<h2>
+Buy Verified Binance Accounts
+</h2>
+
+<p>
+
+Welcome to PVASMMITZone. This product page provides
+detailed information about our digital account
+products, available options and customer support.
+
+</p>
+
+<p>
+
+Our goal is to provide a simple and convenient
+shopping experience with clear product details
+before you place an order.
+
+</p>
+
+<h3>
+What You Can Expect
+</h3>
+
+<ul>
+
+<li>Clear product information</li>
+<li>Different product options</li>
+<li>Easy ordering process</li>
+<li>Customer support</li>
+<li>Digital delivery</li>
+
+</ul>
+
+<h3>
+Before Ordering
+</h3>
+
+<p>
+
+Please carefully review the available product
+options and description before placing an order.
+If you have any questions, contact our support
+team for assistance.
+
+</p>
+
+<h3>
+Customer Support
+</h3>
+
+<p>
+
+Our support team is available to help with
+product-related questions and order assistance.
+We aim to make your shopping experience simple,
+clear and convenient.
+
+</p>
+
+<p>
+
+Thank you for choosing
+<strong>PVASMMITZone</strong>.
+
+</p>
+
+</div>
+
+</div>
+
+
+<!-- =========================================================
+     ADDITIONAL INFORMATION
+========================================================= -->
+
+<div
+    id="pd-additional"
+    class="pd-tab-content">
+
+
+<div class="pd-additional-info">
+
+<h3>
+Product Information
+</h3>
+
+
+<div class="pd-info-row">
+<span>Product Type</span>
+<strong>Digital Product</strong>
+</div>
+
+<div class="pd-info-row">
+<span>Delivery</span>
+<strong>Digital Delivery</strong>
+</div>
+
+<div class="pd-info-row">
+<span>Support</span>
+<strong>Customer Support</strong>
+</div>
+
+<div class="pd-info-row">
+<span>Availability</span>
+<strong>Available</strong>
+</div>
+
+<div class="pd-info-row">
+<span>Product Quality</span>
+<strong>Quality Checked</strong>
+</div>
+
+</div>
+
+
+<!-- =========================================================
+     MORE CRYPTO ACCOUNT PRODUCTS
+========================================================= -->
+
+<div class="additional-options">
+
+
+<div class="additional-heading">
+
+<h2>
+More Crypto Account Products
+</h2>
+
+</div>
+
+<!-- এখানে crypto-section.html ফাইলটি লোড হবে -->
+<div id="crypto-section-container"></div>
+
+</div>
+
+</div>
+
+
+<!-- =========================================================
+     REVIEWS
+========================================================= -->
+
+<div
+    id="pd-reviews"
+    class="pd-tab-content">
+
+<div class="pd-review-summary">
+
+<h3>
+Customer Reviews
+</h3>
+
+<p>
+Share your experience with this product. Reviews are manually approved before publishing.
+</p>
+
+</div>
+
+
+<div id="reviewsList"></div>
+
+
+<!-- রিভিউ সাবমিট ফর্ম -->
+<form id="review-form" class="pd-review-form">
+    <h3>Write a Review</h3>
+    <input type="hidden" id="product-id" value="buy-verified-binance-accounts"> <!-- প্রোডাক্ট আইডি -->
+    
+    <div class="pd-form-group">
+        <label>Your Name:</label>
+        <input type="text" id="review-name" placeholder="Enter your name" required>
+    </div>
+
+    <div class="pd-form-group">
+        <label>Your Email:</label>
+        <input type="email" id="review-email" placeholder="Enter your email" required>
+    </div>
+    
+    <div class="pd-form-group">
+        <label>Rating (1 to 5):</label>
+        <select id="rating-input" required>
+            <option value="5">5 Stars</option>
+            <option value="4">4 Stars</option>
+            <option value="3">3 Stars</option>
+            <option value="2">2 Stars</option>
+            <option value="1">1 Star</option>
+        </select>
+    </div>
+    
+    <div class="pd-form-group">
+        <label>Your Review:</label>
+        <textarea id="review-comment" placeholder="Write your review..." required></textarea>
+    </div>
+
+    <button type="submit" class="pd-submit-review">Submit Review</button>
+</form>
+
+</div>
+
+</div>
+
+</div>
+
+</main>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<div id="site-footer"></div>
+
+
+<script>
+/* =========================================================
+   SUPABASE INITIALIZATION
+========================================================= */
+const SUPABASE_URL = 'https://xesxszewijgptialporu.supabase.co';
+const SUPABASE_ANON_KEY = 'sb_publishable_62wWEgo__Xms3meUHyAvDw_xDxMeW0B';
+
+const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+const CURRENT_PRODUCT_SLUG = 'buy-verified-binance-accounts';
+
+/* =========================================================
+   LOAD REVIEWS FROM SUPABASE (Only status = 'approved')
+========================================================= */
+async function loadReviews(){
+    const reviewList = document.getElementById("reviewsList");
+    const reviewCount = document.getElementById("reviewCount");
+    const topReviewCount = document.getElementById("topReviewCount");
+
+    try {
+        const { data: reviews, error } = await supabaseClient
+            .from('reviews')
+            .select('*')
+            .eq('product_slug', CURRENT_PRODUCT_SLUG)
+            .eq('status', 'approved')
+            .order('created_at', { ascending: false });
+
+        if (error) throw error;
+
+        reviewCount.textContent = reviews.length;
+        topReviewCount.textContent = reviews.length;
+
+        if(reviews.length === 0){
+            reviewList.innerHTML = `
+            <div class="pd-no-reviews">
+                No approved reviews yet. Be the first to review this product.
+            </div>
+            `;
+            return;
+        }
+
+        reviewList.innerHTML = reviews.map(review => {
+            const stars = "★".repeat(review.rating) + "☆".repeat(5 - review.rating);
+            const reviewDate = review.created_at ? new Date(review.created_at).toLocaleDateString() : '';
+
+            return `
+            <div class="pd-review-item">
+                <div class="pd-review-head">
+                    <div class="pd-reviewer">${escapeHTML(review.name)}</div>
+                    <div class="pd-review-date">${escapeHTML(review.date || reviewDate)}</div>
+                </div>
+                <div class="pd-review-stars">${stars}</div>
+                <div class="pd-review-text">${escapeHTML(review.comment || review.review_text)}</div>
+            </div>
+            `;
+        }).join("");
+
+    } catch (err) {
+        console.error("Error loading reviews:", err);
+        reviewList.innerHTML = `<div class="pd-no-reviews">Could not load reviews at the moment.</div>`;
+    }
+}
+
+
+/* =========================================================
+   SUBMIT REVIEW TO SUPABASE (status = 'pending')
+========================================================= */
+document.getElementById('review-form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    const productId = document.getElementById('product-id').value;
+    const name = document.getElementById('review-name').value.trim();
+    const email = document.getElementById('review-email').value.trim();
+    const rating = parseInt(document.getElementById('rating-input').value);
+    const comment = document.getElementById('review-comment').value.trim();
+
+    if(!name || !email || !comment){
+        alert('Please fill in all required fields.');
+        return;
+    }
+
+    // Supabase ডাটাবেজে সেভ করা (এখানে 'comment' এর বদলে 'review_text' দেওয়া হয়েছে)
+    const { data, error } = await supabaseClient
+        .from('reviews')
+        .insert([{ 
+            product_slug: productId, 
+            name: name,
+            email: email,
+            rating: rating, 
+            review_text: comment, 
+            status: 'pending' 
+        }]);
+
+    if (error) {
+        alert('Error submitting review: ' + error.message);
+    } else {
+        alert('Thank you! Your review has been submitted successfully and is pending approval.');
+        location.reload(); // পেজ রিফ্রেশ হবে
+    }
+});
+
+
+/* =========================================================
+   LOAD CRYPTO SECTION FILE
+========================================================= */
+
+function loadCryptoSection() {
+    const productsContainer = document.getElementById("crypto-section-container");
+
+    if (!productsContainer) return;
+
+    fetch("crypto-section.html", {
+        method: "GET",
+        cache: "no-cache"
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error("Unable to load crypto-section.html (" + response.status + ")");
+        }
+        return response.text();
+    })
+    .then(html => {
+        const parser = new DOMParser();
+        const sourceDocument = parser.parseFromString(html, "text/html");
+
+        sourceDocument
+            .querySelectorAll("style, link[rel='stylesheet']")
+            .forEach(element => {
+                if (element.tagName.toLowerCase() === "style") {
+                    const style = document.createElement("style");
+                    style.textContent = element.textContent;
+                    document.head.appendChild(style);
+                } else {
+                    const href = element.getAttribute("href");
+                    if (!href) return;
+
+                    const alreadyLoaded = Array.from(
+                        document.querySelectorAll("link[rel='stylesheet']")
+                    ).some(link =>
+                        link.href === new URL(href, window.location.href).href
+                    );
+
+                    if (!alreadyLoaded) {
+                        const link = document.createElement("link");
+                        Array.from(element.attributes).forEach(attr => {
+                            link.setAttribute(attr.name, attr.value);
+                        });
+                        document.head.appendChild(link);
+                    }
+                }
+            });
+
+        const fragment = sourceDocument.querySelector(".additional-options");
+        productsContainer.innerHTML = fragment ? fragment.outerHTML : html;
+
+        sourceDocument.querySelectorAll("script").forEach(originalScript => {
+            const script = document.createElement("script");
+            Array.from(originalScript.attributes).forEach(attr => {
+                script.setAttribute(attr.name, attr.value);
+            });
+
+            if (originalScript.src) {
+                script.src = originalScript.src;
+                script.async = false;
+            } else {
+                script.textContent = originalScript.textContent;
+            }
+
+            document.body.appendChild(script);
+        });
+
+        setTimeout(() => {
+            try {
+                createAdditionalDots();
+                updateAdditionalCarousel();
+            } catch (err) {
+                console.warn("Carousel init after crypto section load failed:", err);
+            }
+        }, 20);
+
+        window.dispatchEvent(new CustomEvent("cryptoSectionLoaded"));
+    })
+    .catch(error => {
+        console.error("Crypto section loading failed:", error);
+        productsContainer.innerHTML = "";
+    });
+}
+
+
+/* =========================================================
+   LOAD COMMON HEADER + FOOTER
+========================================================= */
+
+(function(){
+
+    "use strict";
+
+    const HEADER_FOOTER_FILE = "header-footer.html";
+
+    function executeScript(originalScript){
+        const script = document.createElement("script");
+
+        Array.from(originalScript.attributes).forEach(attribute=>{
+            script.setAttribute(attribute.name, attribute.value);
+        });
+
+        if(originalScript.src){
+            script.src = originalScript.src;
+        }else{
+            script.textContent = originalScript.textContent;
+        }
+
+        document.body.appendChild(script);
+    }
+
+    function appendStylesAndLinks(sourceDocument){
+        sourceDocument
+            .querySelectorAll("style, link[rel='stylesheet']")
+            .forEach(element=>{
+                if(element.tagName.toLowerCase()==="style"){
+                    const style = document.createElement("style");
+                    style.textContent = element.textContent;
+                    document.head.appendChild(style);
+                }else{
+                    const href = element.getAttribute("href");
+                    if(!href) return;
+
+                    const alreadyLoaded = Array.from(
+                        document.querySelectorAll("link[rel='stylesheet']")
+                    ).some(link =>
+                        link.href === new URL(href, window.location.href).href
+                    );
+
+                    if(!alreadyLoaded){
+                        const link = document.createElement("link");
+                        Array.from(element.attributes).forEach(attribute=>{
+                            link.setAttribute(attribute.name, attribute.value);
+                        });
+                        document.head.appendChild(link);
+                    }
+                }
+            });
+    }
+
+    function loadHeaderFooter(){
+        const headerContainer = document.getElementById("site-header");
+        const footerContainer = document.getElementById("site-footer");
+
+        if(!headerContainer || !footerContainer){
+            return;
+        }
+
+        fetch(HEADER_FOOTER_FILE, {
+            method:"GET",
+            cache:"no-cache"
+        })
+        .then(response=>{
+            if(!response.ok){
+                throw new Error("Unable to load " + HEADER_FOOTER_FILE + " (" + response.status + ")");
+            }
+            return response.text();
+        })
+        .then(html=>{
+            const parser = new DOMParser();
+            const sourceDocument = parser.parseFromString(html, "text/html");
+
+            appendStylesAndLinks(sourceDocument);
+
+            const sourceHeader = sourceDocument.querySelector("header.site-header") || sourceDocument.querySelector("header");
+            if(sourceHeader){
+                headerContainer.innerHTML = sourceHeader.outerHTML;
+            }
+
+            const sourceFooter = sourceDocument.querySelector("footer.pvasm-footer") || sourceDocument.querySelector("footer");
+            if(sourceFooter){
+                footerContainer.innerHTML = sourceFooter.outerHTML;
+            }
+
+            sourceDocument.querySelectorAll("script").forEach(executeScript);
+
+            window.dispatchEvent(new CustomEvent("siteHeaderFooterLoaded"));
+        })
+        .catch(error=>{
+            console.error("Header/Footer loading failed:", error);
+            headerContainer.innerHTML = "";
+            footerContainer.innerHTML = "";
+        });
+    }
+
+    if(document.readyState==="loading"){
+        document.addEventListener("DOMContentLoaded", loadHeaderFooter);
+    }else{
+        loadHeaderFooter();
+    }
+
+})();
+
+
+/* =========================================================
+   LOAD CONTACT BOX
+========================================================= */
+
+function loadContactBox(){
+    const contactContainer = document.getElementById("contact-box");
+
+    if(!contactContainer){
+        return;
+    }
+
+    fetch("contact-box.html", {
+        method:"GET",
+        cache:"no-cache"
+    })
+    .then(response=>{
+        if(!response.ok){
+            throw new Error("Unable to load contact-box.html (" + response.status + ")");
+        }
+        return response.text();
+    })
+    .then(html=>{
+        contactContainer.innerHTML = html;
+    })
+    .catch(error=>{
+        console.error("Contact Box loading failed:", error);
+        contactContainer.innerHTML = "";
+    });
+}
+
+
+/* =========================================================
+   CURSOR PARTICLES
+========================================================= */
+
+const particleCanvas = document.getElementById("cursorParticles");
+const particleContext = particleCanvas && particleCanvas.getContext("2d");
+
+if(
+    particleContext &&
+    !window.matchMedia("(prefers-reduced-motion: reduce)").matches
+){
+    const particles = [];
+    const colors = ["#a78bfa", "#ec4899", "#22d3ee", "#fbbf24", "#34d399"];
+    const cursor = { x: -1000, y: -1000 };
+
+    function resizeParticleCanvas(){
+        const scale = window.devicePixelRatio || 1;
+        particleCanvas.width = window.innerWidth * scale;
+        particleCanvas.height = window.innerHeight * scale;
+        particleCanvas.style.width = `${window.innerWidth}px`;
+        particleCanvas.style.height = `${window.innerHeight}px`;
+        particleContext.setTransform(scale, 0, 0, scale, 0, 0);
+    }
+
+    for(let i=0; i<32; i++){
+        const homeX = Math.random()*window.innerWidth;
+        const homeY = Math.random()*window.innerHeight;
+
+        particles.push({
+            x: homeX,
+            y: homeY,
+            homeX,
+            homeY,
+            size: 1.5 + Math.random()*2.8,
+            color: colors[i % colors.length],
+            alpha: .35 + Math.random()*.5
+        });
+    }
+
+    window.addEventListener("resize", resizeParticleCanvas);
+
+    document.addEventListener("pointermove", e => {
+        cursor.x = e.clientX;
+        cursor.y = e.clientY;
+    }, { passive: true });
+
+    function animateParticles(){
+        particleContext.clearRect(0, 0, window.innerWidth, window.innerHeight);
+
+        particles.forEach(particle=>{
+            const dx = cursor.x - particle.homeX;
+            const dy = cursor.y - particle.homeY;
+            const distance = Math.hypot(dx, dy);
+            const influenceRadius = 190;
+            const influence = distance < influenceRadius ? Math.pow(1 - distance / influenceRadius, 2) : 0;
+            const targetX = particle.homeX + dx * influence;
+            const targetY = particle.homeY + dy * influence;
+
+            particle.x += (targetX - particle.x) * .12;
+            particle.y += (targetY - particle.y) * .12;
+
+            particleContext.globalAlpha = particle.alpha;
+            particleContext.fillStyle = particle.color;
+            particleContext.beginPath();
+            particleContext.arc(particle.x, particle.y, particle.size, 0, Math.PI*2);
+            particleContext.fill();
+        });
+
+        particleContext.globalAlpha = 1;
+        requestAnimationFrame(animateParticles);
+    }
+
+    resizeParticleCanvas();
+    animateParticles();
+}
+
+
+/* =========================================================
+   CURSOR GLOW
+========================================================= */
+
+const cursorGlow = document.querySelector(".cursor-glow");
+
+if(
+    cursorGlow &&
+    !window.matchMedia("(prefers-reduced-motion: reduce)").matches
+){
+    document.addEventListener("pointermove", e => {
+        cursorGlow.style.left = `${e.clientX}px`;
+        cursorGlow.style.top = `${e.clientY}px`;
+    }, { passive: true });
+}
+
+
+/* =========================================================
+   PRODUCT TABS
+========================================================= */
+
+function openProductTab(event, tabId){
+    const contents = document.querySelectorAll(".pd-tab-content");
+    contents.forEach(content => {
+        content.classList.remove("active");
+    });
+
+    const buttons = document.querySelectorAll(".pd-tab-btn");
+    buttons.forEach(button => {
+        button.classList.remove("active");
+    });
+
+    const tabContent = document.getElementById(tabId);
+    if(tabContent) {
+        tabContent.classList.add("active");
+    }
+
+    if(event && event.currentTarget){
+        event.currentTarget.classList.add("active");
+    }
+}
+
+
+/* =========================================================
+   SHOW REVIEWS
+========================================================= */
+
+function showReviews(){
+    const reviewButton = document.getElementById("reviewTabButton");
+    openProductTab({ currentTarget: reviewButton }, "pd-reviews");
+
+    document.getElementById("pd-reviews").scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
+}
+
+
+/* =========================================================
+   ADD TO CART
+========================================================= */
+
+function updateSelectedPrice(select){
+    const priceElement = document.getElementById("selectedPrice");
+    const selectedOption = select.selectedOptions[0];
+
+    if(!select.value){
+        priceElement.textContent = "";
+        return;
+    }
+
+    if(selectedOption.dataset.salePrice){
+        priceElement.innerHTML =
+            "<del>$" + Number(selectedOption.dataset.price).toFixed(2) + "</del> <strong>$" +
+            Number(selectedOption.dataset.salePrice).toFixed(2) + "</strong>";
+    }else{
+        priceElement.textContent = "Selected price: $" + selectedOption.dataset.price;
+    }
+}
+
+function addToCart(){
+    const select = document.querySelector(".pd-product-select");
+    const option = select.value;
+    const selectedOption = select.selectedOptions[0];
+    const quantity = parseInt(document.querySelector(".pd-quantity").value) || 1;
+
+    if(!option){
+        alert("Please select a product option first.");
+        return;
+    }
+
+    const unitPrice = parseFloat(selectedOption.dataset.price);
+    const originalTotal = unitPrice * quantity;
+    const discountedTotal = originalTotal * 0.90;
+
+    const cartSummary = document.getElementById("cartSummary");
+
+    cartSummary.innerHTML =
+        "Your price: " +
+        "<del>$" + originalTotal.toFixed(2) + "</del> " +
+        "<strong>$" + discountedTotal.toFixed(2) + "</strong>";
+
+    cartSummary.classList.add("visible");
+
+    alert(
+        "Product added to cart.\n\n" +
+        "Option: " + selectedOption.textContent.trim() +
+        "\nQuantity: " + quantity +
+        "\nPrice: $" + discountedTotal.toFixed(2)
+    );
+}
+
+
+/* =========================================================
+   ESCAPE HTML
+========================================================= */
+
+function escapeHTML(text){
+    const div = document.createElement("div");
+    div.textContent = text;
+    return div.innerHTML;
+}
+
+
+/* =========================================================
+   ADDITIONAL CRYPTO PRODUCTS CAROUSEL
+========================================================= */
+
+let additionalIndex = 0;
+
+function getAdditionalVisibleCards(){
+    if(window.innerWidth <= 480) return 1;
+    if(window.innerWidth <= 700) return 2;
+    if(window.innerWidth <= 1050) return 3;
+    return 4;
+}
+
+function createAdditionalDots(){
+    const additionalDots = document.getElementById("additionalDots");
+    const additionalCards = document.querySelectorAll(".additional-card");
+
+    if (!additionalDots) return;
+
+    additionalDots.innerHTML = "";
+
+    const visible = getAdditionalVisibleCards();
+    const max = Math.max(0, additionalCards.length - visible);
+
+    for(let i=0; i<=max; i++){
+        const dot = document.createElement("button");
+        dot.className = "additional-dot";
+        dot.setAttribute("aria-label", "Go to product group " + (i + 1));
+        dot.addEventListener("click", () => {
+            additionalIndex = i;
+            updateAdditionalCarousel();
+        });
+        additionalDots.appendChild(dot);
+    }
+}
+
+function updateAdditionalCarousel(){
+    const additionalTrack = document.querySelector(".additional-track") || document.getElementById("additionalTrack");
+    const additionalCards = document.querySelectorAll(".additional-card");
+    const additionalPrev = document.getElementById("additionalPrev");
+    const additionalNext = document.getElementById("additionalNext");
+
+    if(!additionalCards.length || !additionalTrack) return;
+
+    const visible = getAdditionalVisibleCards();
+    const max = Math.max(0, additionalCards.length - visible);
+
+    if(additionalIndex > max) additionalIndex = max;
+
+    const gap = parseFloat(getComputedStyle(additionalTrack).gap) || 0;
+    const cardWidth = additionalCards[0].getBoundingClientRect().width;
+    const move = (cardWidth + gap) * additionalIndex;
+
+    additionalTrack.style.transform = `translateX(-${move}px)`;
+
+    if(additionalPrev) additionalPrev.disabled = additionalIndex <= 0;
+    if(additionalNext) additionalNext.disabled = additionalIndex >= max;
+
+    document.querySelectorAll(".additional-dot").forEach((dot, index) => {
+        dot.classList.toggle("active", index === additionalIndex);
+    });
+}
+
+const additionalViewport = document.querySelector(".additional-viewport");
+const additionalTrack = document.getElementById("additionalTrack");
+const additionalCards = document.querySelectorAll(".additional-card");
+const additionalPrev = document.getElementById("additionalPrev");
+const additionalNext = document.getElementById("additionalNext");
+
+if(additionalNext){
+    additionalNext.addEventListener("click", () => {
+        const visible = getAdditionalVisibleCards();
+        const max = Math.max(0, additionalCards.length - visible);
+
+        if(additionalIndex < max){
+            additionalIndex++;
+            updateAdditionalCarousel();
+        }
+    });
+}
+
+if(additionalPrev){
+    additionalPrev.addEventListener("click", () => {
+        if(additionalIndex > 0){
+            additionalIndex--;
+            updateAdditionalCarousel();
+        }
+    });
+}
+
+window.addEventListener("resize", () => {
+    const visible = getAdditionalVisibleCards();
+    const max = Math.max(0, additionalCards.length - visible);
+
+    if(additionalIndex > max){
+        additionalIndex = max;
+    }
+
+    createAdditionalDots();
+    updateAdditionalCarousel();
+});
+
+let additionalDragging = false;
+let additionalStartX = 0;
+let additionalCurrentX = 0;
+
+function additionalDragStart(x){
+    additionalDragging = true;
+    additionalStartX = x;
+    additionalCurrentX = x;
+    if (additionalTrack) additionalTrack.style.transition = "none";
+}
+
+function additionalDragMove(x){
+    if(!additionalDragging) return;
+    additionalCurrentX = x;
+}
+
+function additionalDragEnd(){
+    if(!additionalDragging) return;
+
+    additionalDragging = false;
+
+    if(additionalTrack){
+        additionalTrack.style.transition = "transform .45s cubic-bezier(.22,.61,.36,1)";
+    }
+
+    const distance = additionalCurrentX - additionalStartX;
+
+    if(Math.abs(distance) > 45){
+        const visible = getAdditionalVisibleCards();
+        const max = Math.max(0, additionalCards.length - visible);
+
+        if(distance < 0){
+            if(additionalIndex < max) additionalIndex++;
+        }else{
+            if(additionalIndex > 0) additionalIndex--;
+        }
+    }
+
+    updateAdditionalCarousel();
+}
+
+if(additionalViewport){
+    additionalViewport.addEventListener("mousedown", e => {
+        additionalDragStart(e.clientX);
+    });
+
+    additionalViewport.addEventListener("touchstart", e => {
+        additionalDragStart(e.touches[0].clientX);
+    }, { passive: true });
+
+    additionalViewport.addEventListener("touchmove", e => {
+        additionalDragMove(e.touches[0].clientX);
+    }, { passive: true });
+
+    additionalViewport.addEventListener("touchend", () => {
+        additionalDragEnd();
+    });
+}
+
+window.addEventListener("mousemove", e => {
+    if(additionalDragging){
+        additionalDragMove(e.clientX);
+    }
+});
+
+window.addEventListener("mouseup", () => {
+    if(additionalDragging){
+        additionalDragEnd();
+    }
+});
+
+/* =========================================================
+   INITIAL LOAD
+========================================================= */
+
+loadReviews();
+loadContactBox();
+loadCryptoSection();
+
+</script>
+
+</body>
+</html>

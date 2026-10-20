@@ -1,0 +1,1996 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>PVASMMITZone Header Footer</title>
+
+<!-- Google Font -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+>
+
+<!-- Font Awesome -->
+<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+>
+
+
+<style>
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:"Plus Jakarta Sans",sans-serif;
+    background:#070b15;
+    color:#f7f8ff;
+    overflow-x:hidden;
+}
+
+a{
+    color:inherit;
+}
+
+button,
+input,
+select,
+textarea{
+    font-family:inherit;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.brand-space{
+    display:flex;
+    align-items:center;
+    justify-content:flex-start;
+    width:190px;
+    min-width:190px;
+    height:76px;
+}
+
+.site-logo{
+    display:flex;
+    align-items:center;
+    text-decoration:none;
+}
+
+.site-logo img{
+    width:165px;
+    max-height:58px;
+    object-fit:contain;
+    display:block;
+
+    filter:
+        drop-shadow(0 0 8px rgba(139,92,246,.12));
+
+    transition:
+        transform .3s ease,
+        filter .3s ease;
+}
+
+.site-logo img:hover{
+    transform:scale(1.04);
+
+    filter:
+        drop-shadow(0 0 10px rgba(139,92,246,.25))
+        drop-shadow(0 0 18px rgba(236,72,153,.10));
+}
+
+
+.site-header{
+    position:sticky;
+    top:0;
+    z-index:9999;
+    isolation:isolate;
+
+    width:100%;
+    height:76px;
+
+    background:rgba(7,8,18,.78);
+
+    border-bottom:
+        1px solid rgba(255,255,255,.07);
+
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+
+    box-shadow:
+        0 10px 40px rgba(0,0,0,.18),
+        0 4px 25px rgba(139,92,246,.06),
+        0 0 45px rgba(236,72,153,.035);
+}
+
+
+.site-header::before{
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    right:0;
+    top:0;
+
+    height:1.5px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent 0%,
+            rgba(139,92,246,.15) 12%,
+            #8b5cf6 32%,
+            #ec4899 50%,
+            #22d3ee 68%,
+            rgba(139,92,246,.15) 88%,
+            transparent 100%
+        );
+
+    background-size:200% 100%;
+
+    animation:
+        headerLightFlow 7s linear infinite;
+
+    opacity:.75;
+
+    box-shadow:
+        0 0 8px rgba(139,92,246,.25),
+        0 0 16px rgba(236,72,153,.12);
+
+    pointer-events:none;
+}
+
+
+.site-header::after{
+    content:"";
+
+    position:absolute;
+
+    left:8%;
+    right:8%;
+    bottom:-1px;
+
+    height:55px;
+
+    background:
+        radial-gradient(
+            ellipse at 25% 50%,
+            rgba(139,92,246,.13),
+            transparent 55%
+        ),
+        radial-gradient(
+            ellipse at 75% 50%,
+            rgba(236,72,153,.10),
+            transparent 55%
+        );
+
+    filter:blur(18px);
+
+    opacity:.7;
+
+    pointer-events:none;
+
+    z-index:-1;
+}
+
+
+@keyframes headerLightFlow{
+
+    0%{
+        background-position:200% 0;
+    }
+
+    100%{
+        background-position:-200% 0;
+    }
+
+}
+
+
+.header-container{
+
+    position:relative;
+
+    width:min(1500px,100%);
+    height:76px;
+
+    margin:auto;
+
+    padding:0 25px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:space-between;
+
+    gap:20px;
+}
+
+
+.header-container::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:180px;
+    height:50px;
+
+    left:18%;
+    top:13px;
+
+    background:
+        radial-gradient(
+            ellipse,
+            rgba(139,92,246,.045),
+            transparent 70%
+        );
+
+    filter:blur(15px);
+
+    pointer-events:none;
+
+    animation:
+        headerAmbient 8s ease-in-out infinite alternate;
+}
+
+
+.header-container::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:150px;
+    height:45px;
+
+    right:18%;
+    top:15px;
+
+    background:
+        radial-gradient(
+            ellipse,
+            rgba(236,72,153,.035),
+            transparent 70%
+        );
+
+    filter:blur(16px);
+
+    pointer-events:none;
+
+    animation:
+        headerAmbient2 9s ease-in-out infinite alternate;
+}
+
+
+@keyframes headerAmbient{
+
+    from{
+        transform:translateX(-25px);
+        opacity:.35;
+    }
+
+    to{
+        transform:translateX(35px);
+        opacity:.75;
+    }
+
+}
+
+
+@keyframes headerAmbient2{
+
+    from{
+        transform:translateX(30px);
+        opacity:.30;
+    }
+
+    to{
+        transform:translateX(-35px);
+        opacity:.70;
+    }
+
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+.main-nav{
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    gap:3px;
+
+    flex:1;
+}
+
+.nav-item{
+    position:relative;
+}
+
+.nav-link{
+
+    position:relative;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:7px;
+
+    padding:10px 11px;
+
+    color:#d8dbea;
+
+    text-decoration:none;
+
+    font-size:15px;
+
+    font-weight:700;
+
+    border-radius:11px;
+
+    transition:
+        color .25s ease,
+        background .25s ease,
+        box-shadow .25s ease;
+}
+
+
+.nav-link:hover{
+
+    color:#fff;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(139,92,246,.12),
+            rgba(236,72,153,.07)
+        );
+
+    box-shadow:
+        0 0 18px rgba(139,92,246,.07),
+        inset 0 0 12px rgba(139,92,246,.035);
+}
+
+
+.nav-arrow{
+
+    font-size:8px;
+
+    transition:.3s ease;
+}
+
+
+.nav-item:hover >
+.nav-link .nav-arrow{
+
+    transform:rotate(180deg);
+}
+
+
+/* =========================================================
+   DROPDOWN
+========================================================= */
+
+.dropdown-menu{
+
+    position:absolute;
+
+    top:calc(100% + 9px);
+    left:0;
+
+    width:260px;
+
+    padding:8px;
+
+    background:rgba(12,17,30,.98);
+
+    border:
+        1px solid rgba(255,255,255,.08);
+
+    border-radius:15px;
+
+    box-shadow:
+        0 25px 60px rgba(0,0,0,.48),
+        0 0 25px rgba(139,92,246,.07),
+        0 0 55px rgba(236,72,153,.035);
+
+    backdrop-filter:blur(18px);
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transform:translateY(8px);
+
+    transition:.25s ease;
+}
+
+
+.nav-item:hover .dropdown-menu{
+
+    opacity:1;
+
+    visibility:visible;
+
+    transform:translateY(0);
+}
+
+
+.dropdown-menu a{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:10px 11px;
+
+    color:#c9cfdb;
+
+    text-decoration:none;
+
+    font-size:11px;
+
+    font-weight:600;
+
+    border-radius:9px;
+
+    transition:.25s ease;
+}
+
+
+.dropdown-menu a:hover{
+
+    color:#fff;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(139,92,246,.16),
+            rgba(236,72,153,.08)
+        );
+
+    transform:translateX(3px);
+
+    box-shadow:
+        0 0 14px rgba(139,92,246,.06);
+}
+
+
+.dropdown-menu i{
+
+    width:16px;
+
+    text-align:center;
+
+    color:#a78bfa;
+
+    transition:.25s ease;
+}
+
+
+.dropdown-menu a:hover i{
+
+    color:#c4b5fd;
+
+    text-shadow:
+        0 0 8px rgba(167,139,250,.35);
+}
+
+
+/* =========================================================
+   MOBILE BUTTON
+========================================================= */
+
+.mobile-menu-btn{
+
+    display:none;
+
+    width:42px;
+    height:42px;
+
+    border:
+        1px solid rgba(255,255,255,.08);
+
+    border-radius:11px;
+
+    background:
+        rgba(255,255,255,.04);
+
+    color:#fff;
+
+    cursor:pointer;
+
+    font-size:17px;
+
+    transition:
+        background .25s ease,
+        border-color .25s ease,
+        box-shadow .25s ease;
+}
+
+
+.mobile-menu-btn:hover{
+
+    border-color:
+        rgba(139,92,246,.30);
+
+    background:
+        rgba(139,92,246,.08);
+
+    box-shadow:
+        0 0 18px rgba(139,92,246,.10);
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.pvasm-footer{
+
+    position:relative;
+
+    width:100%;
+
+    background:
+
+        radial-gradient(
+            circle at 15% 35%,
+            rgba(168,85,247,.09),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 85% 65%,
+            rgba(34,211,238,.07),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 50% 100%,
+            rgba(236,72,153,.05),
+            transparent 35%
+        ),
+
+        #000;
+
+    color:#fff;
+
+    overflow:hidden;
+
+    padding:25px 0 38px;
+
+    border-top:
+        1px solid rgba(168,85,247,.14);
+}
+
+
+.footer-container{
+
+    width:min(900px,92%);
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:42px;
+
+    position:relative;
+
+    z-index:10;
+}
+
+
+.footer-bottom{
+
+    position:relative;
+
+    z-index:10;
+
+    width:min(900px,92%);
+
+    margin:28px auto 0;
+
+    padding-top:16px;
+
+    border-top:
+        1px solid rgba(255,255,255,.12);
+
+    color:#aaa;
+
+    font-size:11px;
+
+    text-align:center;
+}
+
+
+.footer-bottom a{
+
+    color:#fff;
+
+    text-decoration:none;
+
+    transition:color .25s ease;
+}
+
+
+.footer-bottom a:hover{
+
+    color:#a855f7;
+}
+
+
+.footer-column h3{
+
+    font-size:14px;
+
+    font-weight:800;
+
+    margin:0 0 20px;
+
+    color:#fff;
+
+    letter-spacing:.2px;
+}
+
+
+.about-column p{
+
+    color:#d2d2d2;
+
+    font-size:11px;
+
+    line-height:1.65;
+
+    margin:0;
+}
+
+
+.links-column{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:flex-start;
+}
+
+
+.links-column > a,
+.footer-dropdown > a{
+
+    text-decoration:none;
+
+    color:#fff;
+
+    font-size:11px;
+
+    font-weight:700;
+
+    margin-bottom:7px;
+
+    transition:
+        color .25s ease,
+        transform .25s ease;
+}
+
+
+.links-column > a:hover,
+.footer-dropdown > a:hover{
+
+    color:#a855f7;
+
+    transform:translateX(4px);
+}
+
+
+.footer-dropdown{
+
+    width:100%;
+}
+
+
+.footer-dropdown a{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:7px;
+}
+
+
+.contact-column p{
+
+    color:#ddd;
+
+    font-size:11px;
+
+    line-height:1.55;
+
+    margin:0 0 3px;
+}
+
+
+.contact-link{
+
+    color:#1597ff;
+
+    text-decoration:none;
+
+    transition:.25s ease;
+}
+
+
+.contact-link:hover{
+
+    color:#a855f7;
+
+    text-shadow:
+        0 0 8px rgba(168,85,247,.5);
+}
+
+
+/* =========================================================
+   FOOTER NETWORK
+========================================================= */
+
+.footer-network-layer{
+
+    position:absolute;
+
+    inset:0;
+
+    width:100%;
+    height:100%;
+
+    overflow:hidden;
+
+    pointer-events:none;
+
+    z-index:1;
+}
+
+
+.footer-node{
+
+    position:absolute;
+
+    width:3px;
+    height:3px;
+
+    border-radius:50%;
+
+    background:#fff;
+
+    box-shadow:
+
+        0 0 5px rgba(255,255,255,.9),
+
+        0 0 12px rgba(168,85,247,.9),
+
+        0 0 25px rgba(34,211,238,.45);
+
+    animation:
+
+        nodeFloat 7s ease-in-out infinite,
+
+        nodePulse 3.5s ease-in-out infinite;
+}
+
+
+.footer-node.big{
+
+    width:5px;
+    height:5px;
+
+    box-shadow:
+
+        0 0 7px rgba(255,255,255,1),
+
+        0 0 16px rgba(168,85,247,1),
+
+        0 0 32px rgba(236,72,153,.65);
+}
+
+
+.footer-line{
+
+    position:absolute;
+
+    height:1px;
+
+    transform-origin:left center;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            rgba(168,85,247,0),
+            rgba(168,85,247,.6),
+            rgba(236,72,153,.4),
+            rgba(34,211,238,.2),
+            rgba(34,211,238,0)
+        );
+
+    box-shadow:
+
+        0 0 5px rgba(168,85,247,.3),
+
+        0 0 10px rgba(34,211,238,.08);
+
+    opacity:.55;
+
+    animation:
+        lineFloat 10s ease-in-out infinite;
+}
+
+
+/* Network Lines */
+
+.line-1{
+    width:280px;
+    left:2%;
+    top:22%;
+    transform:rotate(18deg);
+    animation-delay:-1s;
+}
+
+.line-2{
+    width:350px;
+    left:8%;
+    top:70%;
+    transform:rotate(-13deg);
+    animation-delay:-4s;
+}
+
+.line-3{
+    width:300px;
+    left:28%;
+    top:20%;
+    transform:rotate(32deg);
+    animation-delay:-2s;
+}
+
+.line-4{
+    width:420px;
+    left:38%;
+    top:75%;
+    transform:rotate(-21deg);
+    animation-delay:-6s;
+}
+
+.line-5{
+    width:270px;
+    left:57%;
+    top:25%;
+    transform:rotate(16deg);
+    animation-delay:-3s;
+}
+
+.line-6{
+    width:360px;
+    left:68%;
+    top:62%;
+    transform:rotate(-30deg);
+    animation-delay:-7s;
+}
+
+.line-7{
+    width:250px;
+    left:80%;
+    top:30%;
+    transform:rotate(28deg);
+    animation-delay:-5s;
+}
+
+.line-8{
+    width:310px;
+    left:45%;
+    top:45%;
+    transform:rotate(7deg);
+    animation-delay:-8s;
+}
+
+.line-9{
+    width:240px;
+    left:15%;
+    top:48%;
+    transform:rotate(-25deg);
+    animation-delay:-3.5s;
+}
+
+.line-10{
+    width:300px;
+    left:72%;
+    top:82%;
+    transform:rotate(-8deg);
+    animation-delay:-5.5s;
+}
+
+
+/* Network Nodes */
+
+.node-1{
+    left:4%;
+    top:20%;
+    animation-delay:-1s;
+}
+
+.node-2{
+    left:12%;
+    top:69%;
+    animation-delay:-2s;
+}
+
+.node-3{
+    left:22%;
+    top:38%;
+    animation-delay:-4s;
+}
+
+.node-4{
+    left:31%;
+    top:18%;
+    animation-delay:-1.5s;
+}
+
+.node-5{
+    left:40%;
+    top:66%;
+    animation-delay:-3s;
+}
+
+.node-6{
+    left:50%;
+    top:30%;
+    animation-delay:-5s;
+}
+
+.node-7{
+    left:59%;
+    top:74%;
+    animation-delay:-2.5s;
+}
+
+.node-8{
+    left:68%;
+    top:23%;
+    animation-delay:-4.5s;
+}
+
+.node-9{
+    left:76%;
+    top:58%;
+    animation-delay:-1.5s;
+}
+
+.node-10{
+    left:86%;
+    top:31%;
+    animation-delay:-3.5s;
+}
+
+.node-11{
+    left:93%;
+    top:76%;
+    animation-delay:-5.5s;
+}
+
+.node-12{
+    left:48%;
+    top:88%;
+    animation-delay:-2s;
+}
+
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes nodeFloat{
+
+    0%{
+        margin-left:0;
+        margin-top:0;
+    }
+
+    25%{
+        margin-left:12px;
+        margin-top:-8px;
+    }
+
+    50%{
+        margin-left:-8px;
+        margin-top:10px;
+    }
+
+    75%{
+        margin-left:10px;
+        margin-top:7px;
+    }
+
+    100%{
+        margin-left:0;
+        margin-top:0;
+    }
+}
+
+
+@keyframes nodePulse{
+
+    0%,100%{
+        opacity:.35;
+    }
+
+    50%{
+        opacity:1;
+    }
+}
+
+
+@keyframes lineFloat{
+
+    0%{
+        opacity:.25;
+        margin-left:0;
+    }
+
+    50%{
+        opacity:.75;
+        margin-left:15px;
+    }
+
+    100%{
+        opacity:.25;
+        margin-left:0;
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:1050px){
+
+    .brand-space{
+        width:110px;
+        min-width:110px;
+    }
+
+    .nav-link{
+        padding:10px 7px;
+        font-size:12px;
+    }
+
+    .footer-container{
+        grid-template-columns:repeat(3,1fr);
+        gap:32px;
+    }
+}
+
+
+@media(max-width:700px){
+
+    .site-header{
+        height:68px;
+    }
+
+    .header-container{
+        height:68px;
+        padding:0 16px;
+    }
+
+    .brand-space{
+        flex:1;
+        width:auto;
+        min-width:0;
+    }
+
+    .site-logo img{
+        width:125px;
+        max-height:44px;
+    }
+
+    .mobile-menu-btn{
+        display:flex;
+        align-items:center;
+        justify-content:center;
+    }
+
+    .main-nav{
+
+        position:absolute;
+
+        top:calc(100% + 1px);
+
+        left:0;
+        right:0;
+
+        display:none;
+
+        flex-direction:column;
+
+        align-items:stretch;
+
+        padding:11px;
+
+        background:rgba(7,8,18,.98);
+
+        border-bottom:
+            1px solid rgba(255,255,255,.08);
+
+        box-shadow:
+            0 25px 50px rgba(0,0,0,.35),
+            0 0 30px rgba(139,92,246,.05);
+    }
+
+    .main-nav.active{
+        display:flex;
+    }
+
+    .nav-item{
+        width:100%;
+    }
+
+    .nav-link{
+        width:100%;
+        justify-content:space-between;
+        padding:12px;
+        font-size:14px;
+    }
+
+    .dropdown-menu{
+
+        position:static;
+
+        width:100%;
+
+        display:none;
+
+        opacity:1;
+
+        visibility:visible;
+
+        transform:none;
+
+        margin-top:3px;
+
+        background:
+            rgba(255,255,255,.025);
+
+        box-shadow:none;
+    }
+
+    .nav-item.dropdown-open .dropdown-menu{
+        display:block;
+    }
+
+    .nav-item.dropdown-open >
+    .nav-link .nav-arrow{
+        transform:rotate(180deg);
+    }
+
+    .footer-container{
+        width:92%;
+        grid-template-columns:repeat(3,1fr);
+        gap:14px;
+    }
+
+    .footer-column h3{
+        margin-bottom:13px;
+    }
+}
+
+
+@media(max-width:480px){
+
+    .header-container{
+        padding:0 12px;
+    }
+
+    .site-logo img{
+        width:115px;
+    }
+
+    .mobile-menu-btn{
+        width:40px;
+        height:40px;
+    }
+
+    .footer-container{
+        gap:10px;
+    }
+
+    .footer-column h3{
+        font-size:12px;
+    }
+
+    .about-column p,
+    .links-column > a,
+    .footer-dropdown > a,
+    .contact-column p{
+        font-size:9px;
+    }
+
+    .footer-line{
+        opacity:.28;
+    }
+
+    .footer-node{
+        width:2px;
+        height:2px;
+    }
+
+    .footer-node.big{
+        width:4px;
+        height:4px;
+    }
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
+
+<header class="site-header">
+
+<div class="header-container">
+
+
+    <div class="brand-space">
+
+        <a href="index.html" class="site-logo">
+
+            <!--
+            =================================================
+            LOGO IMAGE
+            এখানে আপনার নিজের logo/image file বসাবেন।
+
+            একই folder হলে:
+            src="site-long-logo.jpg"
+
+            images folder হলে:
+            src="images/site-long-logo.png"
+            =================================================
+            -->
+
+            <img
+                src="site-long-logo.jpg"
+                alt="PVASMMITZone Logo"
+            >
+
+        </a>
+
+    </div>
+
+
+    <nav class="main-nav" id="mainNav">
+
+
+        <!-- HOME -->
+
+        <div class="nav-item">
+
+            <a
+                href="index.html"
+                class="nav-link"
+            >
+
+                <i class="fa-solid fa-house"></i>
+
+                Home
+
+            </a>
+
+        </div>
+
+
+        <!-- SOCIAL ACCOUNTS -->
+
+        <div class="nav-item">
+
+            <a
+                href="social-accounts.html"
+                class="nav-link dropdown-toggle"
+            >
+
+                Social Accounts
+
+                <i class="fa-solid fa-chevron-down nav-arrow"></i>
+
+            </a>
+
+
+            <div class="dropdown-menu">
+
+                <a href="buy-old-gmail-accounts.html">
+                    <i class="fa-solid fa-envelope"></i>
+                    Buy Old Gmail Accounts
+                </a>
+
+                <a href="buy-edu-mail-accounts.html">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    Buy Edu Mail Accounts
+                </a>
+
+                <a href="buy-google-voice-accounts.html">
+                    <i class="fa-solid fa-phone"></i>
+                    Buy Google Voice Accounts
+                </a>
+
+                <a href="buy-naver-accounts.html">
+                    <i class="fa-solid fa-comment"></i>
+                    Buy Naver Accounts
+                </a>
+
+                <a href="buy-twitter-accounts.html">
+                    <i class="fa-brands fa-x-twitter"></i>
+                    Buy Twitter Accounts
+                </a>
+
+                <a href="buy-linkedin-accounts.html">
+                    <i class="fa-brands fa-linkedin"></i>
+                    Buy LinkedIn Accounts
+                </a>
+
+                <a href="buy-telegram-accounts.html">
+                    <i class="fa-brands fa-telegram"></i>
+                    Buy Telegram Accounts
+                </a>
+
+                <a href="buy-reddit-accounts.html">
+                    <i class="fa-brands fa-reddit"></i>
+                    Buy Reddit Accounts
+                </a>
+
+                <a href="buy-wechat-accounts.html">
+                    <i class="fa-brands fa-weixin"></i>
+                    Buy WeChat Accounts
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- BANK ACCOUNTS -->
+
+        <div class="nav-item">
+
+            <a
+                href="bank-accounts.html"
+                class="nav-link dropdown-toggle"
+            >
+
+                Bank Accounts
+
+                <i class="fa-solid fa-chevron-down nav-arrow"></i>
+
+            </a>
+
+
+            <div class="dropdown-menu">
+
+                <a href="buy-verified-cash-app-accounts.html">
+                    <i class="fa-solid fa-wallet"></i>
+                    Buy Verified Cash App Accounts
+                </a>
+
+                <a href="buy-verified-paypal-accounts.html">
+                    <i class="fa-brands fa-paypal"></i>
+                    Buy Verified PayPal Accounts
+                </a>
+
+                <a href="buy-verified-wise-accounts.html">
+                    <i class="fa-solid fa-money-bill-transfer"></i>
+                    Buy Verified Wise Accounts
+                </a>
+
+                <a href="buy-verified-chase-bank-accounts.html">
+                    <i class="fa-solid fa-building-columns"></i>
+                    Buy Verified Chase Bank Accounts
+                </a>
+
+                <a href="buy-verified-chime-bank-accounts.html">
+                    <i class="fa-solid fa-building-columns"></i>
+                    Buy Verified Chime Bank Accounts
+                </a>
+
+                <a href="buy-verified-stripe-accounts.html">
+                    <i class="fa-brands fa-stripe"></i>
+                    Buy Verified Stripe Accounts
+                </a>
+
+                <a href="buy-verified-skrill-accounts.html">
+                    <i class="fa-solid fa-credit-card"></i>
+                    Buy Verified Skrill Accounts
+                </a>
+
+                <a href="buy-verified-payoneer-accounts.html">
+                    <i class="fa-solid fa-credit-card"></i>
+                    Buy Verified Payoneer Accounts
+                </a>
+
+                <a href="buy-verified-go2bank-accounts.html">
+                    <i class="fa-solid fa-building-columns"></i>
+                    Buy Verified Go2Bank Accounts
+                </a>
+
+                <a href="buy-verified-venmo-accounts.html">
+                    <i class="fa-solid fa-wallet"></i>
+                    Buy Verified Venmo Accounts
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- CRYPTO -->
+
+        <div class="nav-item">
+
+            <a
+                href="crypto-accounts.html"
+                class="nav-link dropdown-toggle"
+            >
+
+                Crypto Accounts
+
+                <i class="fa-solid fa-chevron-down nav-arrow"></i>
+
+            </a>
+
+
+            <div class="dropdown-menu">
+
+                <a href="buy-verified-binance-accounts.html">
+                    <i class="fa-brands fa-bitcoin"></i>
+                    Buy Verified Binance Accounts
+                </a>
+
+                <a href="buy-verified-bybit-accounts.html">
+                    <i class="fa-solid fa-coins"></i>
+                    Buy Verified Bybit Accounts
+                </a>
+
+                <a href="buy-verified-coinbase-accounts.html">
+                    <i class="fa-brands fa-bitcoin"></i>
+                    Buy Verified Coinbase Accounts
+                </a>
+
+                <a href="buy-verified-paxful-accounts.html">
+                    <i class="fa-solid fa-coins"></i>
+                    Buy Verified Paxful Accounts
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- REVIEWS -->
+
+        <div class="nav-item">
+
+            <a
+                href="reviews-service.html"
+                class="nav-link dropdown-toggle"
+            >
+
+                Reviews Service
+
+                <i class="fa-solid fa-chevron-down nav-arrow"></i>
+
+            </a>
+
+
+            <div class="dropdown-menu">
+
+                <a href="buy-yelp-reviews.html">
+                    <i class="fa-solid fa-star"></i>
+                    Buy Yelp Reviews
+                </a>
+
+                <a href="buy-google-reviews.html">
+                    <i class="fa-brands fa-google"></i>
+                    Buy Google Reviews
+                </a>
+
+                <a href="buy-trustpilot-reviews.html">
+                    <i class="fa-solid fa-star"></i>
+                    Buy TrustPilot Reviews
+                </a>
+
+                <a href="buy-facebook-reviews.html">
+                    <i class="fa-brands fa-facebook"></i>
+                    Buy Facebook Reviews
+                </a>
+
+                <a href="buy-tripadvisor-reviews.html">
+                    <i class="fa-solid fa-star"></i>
+                    Buy Tripadvisor Reviews
+                </a>
+
+                <a href="buy-glassdoor-reviews.html">
+                    <i class="fa-solid fa-star"></i>
+                    Buy Glassdoor Reviews
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- CONTACT -->
+
+        <div class="nav-item">
+
+            <a
+                href="contact-us.html"
+                class="nav-link"
+            >
+
+                <i class="fa-solid fa-envelope"></i>
+
+                Contact Us
+
+            </a>
+
+        </div>
+
+
+    </nav>
+
+
+    <!-- MOBILE BUTTON -->
+
+    <button
+        class="mobile-menu-btn"
+        id="mobileMenuBtn"
+        aria-label="Open Menu"
+        aria-expanded="false"
+    >
+
+        <i class="fa-solid fa-bars"></i>
+
+    </button>
+
+
+</div>
+
+</header>
+
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer class="pvasm-footer">
+
+
+    <div class="footer-network-layer">
+
+
+        <!-- NODES -->
+
+        <div class="footer-node node-1"></div>
+        <div class="footer-node node-2"></div>
+        <div class="footer-node node-3 big"></div>
+        <div class="footer-node node-4"></div>
+        <div class="footer-node node-5"></div>
+        <div class="footer-node node-6 big"></div>
+        <div class="footer-node node-7"></div>
+        <div class="footer-node node-8"></div>
+        <div class="footer-node node-9 big"></div>
+        <div class="footer-node node-10"></div>
+        <div class="footer-node node-11"></div>
+        <div class="footer-node node-12"></div>
+
+
+        <!-- LINES -->
+
+        <div class="footer-line line-1"></div>
+        <div class="footer-line line-2"></div>
+        <div class="footer-line line-3"></div>
+        <div class="footer-line line-4"></div>
+        <div class="footer-line line-5"></div>
+        <div class="footer-line line-6"></div>
+        <div class="footer-line line-7"></div>
+        <div class="footer-line line-8"></div>
+        <div class="footer-line line-9"></div>
+        <div class="footer-line line-10"></div>
+
+    </div>
+
+
+    <div class="footer-container">
+
+
+        <div class="footer-column about-column">
+
+            <h3>About Us</h3>
+
+            <p>
+                Pvasmmitzone.com is a Best<br>
+                Place In the World. Here All<br>
+                kind of accounts available at<br>
+                low price.
+            </p>
+
+        </div>
+
+
+        <div class="footer-column links-column">
+
+            <h3>Useful Links</h3>
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <div class="footer-dropdown">
+
+                <a href="social-accounts.html">
+                    Social Accounts
+                </a>
+
+            </div>
+
+            <div class="footer-dropdown">
+
+                <a href="bank-accounts.html">
+                    Bank Accounts
+                </a>
+
+            </div>
+
+            <div class="footer-dropdown">
+
+                <a href="crypto-accounts.html">
+                    Crypto Accounts
+                </a>
+
+            </div>
+
+            <div class="footer-dropdown">
+
+                <a href="reviews-service.html">
+                    Reviews Service
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-column contact-column">
+
+            <h3>Contact Us</h3>
+
+            <p>
+                Los Angeles, California, United<br>
+                States
+            </p>
+
+            <p>
+                WhatsApp:
+
+                <a
+                    href="https://wa.me/19382610057"
+                    class="contact-link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    +1 (938) 261-0057
+                </a>
+            </p>
+
+            <p>
+                Telegram:
+
+                <a
+                    href="https://t.me/pvasmmitzone"
+                    class="contact-link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    @pvasmmitzone
+                </a>
+            </p>
+
+            <p>
+                Email:
+
+                <a
+                    href="mailto:pvasmmitzone@gmail.com"
+                    class="contact-link"
+                >
+                    pvasmmitzone@gmail.com
+                </a>
+            </p>
+
+            <p>
+                Office Time: 24/7
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        © 2026 PVASMMITZone. All Rights Reserved.
+
+        <p>
+
+            <span aria-hidden="true"> • </span>
+
+            <a href="privacy-policy.html">
+                Privacy Policy
+            </a>
+
+            <span aria-hidden="true"> • </span>
+
+            <a href="terms-conditions.html">
+                Terms &amp; Conditions
+            </a>
+
+            <span aria-hidden="true"> • </span>
+
+            <a href="refund-policy.html">
+                Refund Policy
+            </a>
+
+            <span aria-hidden="true"> • </span>
+
+            <a href="disclaimer.html">
+                Disclaimer
+            </a>
+
+        </p>
+
+    </div>
+
+</footer>
+
+
+
+<!-- =========================================================
+     HEADER MOBILE JAVASCRIPT
+========================================================= -->
+
+<script>
+
+const mobileMenuBtn =
+    document.getElementById("mobileMenuBtn");
+
+const mainNav =
+    document.getElementById("mainNav");
+
+
+if(mobileMenuBtn && mainNav){
+
+    mobileMenuBtn.addEventListener(
+        "click",
+        function(){
+
+            const active =
+                mainNav.classList.toggle("active");
+
+            mobileMenuBtn.setAttribute(
+                "aria-expanded",
+                active ? "true" : "false"
+            );
+
+            mobileMenuBtn.innerHTML =
+                active
+                ? '<i class="fa-solid fa-xmark"></i>'
+                : '<i class="fa-solid fa-bars"></i>';
+
+        }
+    );
+
+
+    document
+        .querySelectorAll(".dropdown-toggle")
+        .forEach(function(toggle){
+
+            toggle.addEventListener(
+                "click",
+                function(e){
+
+                    if(window.innerWidth <= 700){
+
+                        e.preventDefault();
+
+                        const item =
+                            this.closest(".nav-item");
+
+
+                        document
+                            .querySelectorAll(
+                                ".nav-item.dropdown-open"
+                            )
+                            .forEach(function(openItem){
+
+                                if(openItem !== item){
+
+                                    openItem.classList.remove(
+                                        "dropdown-open"
+                                    );
+
+                                }
+
+                            });
+
+
+                        item.classList.toggle(
+                            "dropdown-open"
+                        );
+
+                    }
+
+                }
+            );
+
+        });
+
+
+    document.addEventListener(
+        "click",
+        function(e){
+
+            if(
+                window.innerWidth <= 700 &&
+                !e.target.closest(".site-header")
+            ){
+
+                mainNav.classList.remove("active");
+
+                document
+                    .querySelectorAll(
+                        ".nav-item.dropdown-open"
+                    )
+                    .forEach(function(item){
+
+                        item.classList.remove(
+                            "dropdown-open"
+                        );
+
+                    });
+
+                mobileMenuBtn.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+                mobileMenuBtn.innerHTML =
+                    '<i class="fa-solid fa-bars"></i>';
+
+            }
+
+        }
+    );
+
+
+    document.addEventListener(
+        "keydown",
+        function(e){
+
+            if(e.key === "Escape"){
+
+                mainNav.classList.remove("active");
+
+                document
+                    .querySelectorAll(
+                        ".nav-item.dropdown-open"
+                    )
+                    .forEach(function(item){
+
+                        item.classList.remove(
+                            "dropdown-open"
+                        );
+
+                    });
+
+                mobileMenuBtn.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+                mobileMenuBtn.innerHTML =
+                    '<i class="fa-solid fa-bars"></i>';
+
+            }
+
+        }
+    );
+
+
+    window.addEventListener(
+        "resize",
+        function(){
+
+            if(window.innerWidth > 700){
+
+                mainNav.classList.remove("active");
+
+                document
+                    .querySelectorAll(
+                        ".nav-item.dropdown-open"
+                    )
+                    .forEach(function(item){
+
+                        item.classList.remove(
+                            "dropdown-open"
+                        );
+
+                    });
+
+                mobileMenuBtn.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+                mobileMenuBtn.innerHTML =
+                    '<i class="fa-solid fa-bars"></i>';
+
+            }
+
+        }
+    );
+
+}
+
+</script>
+
+
+</body>
+</html>
